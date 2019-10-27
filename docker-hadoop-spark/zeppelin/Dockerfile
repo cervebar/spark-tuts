@@ -1,4 +1,4 @@
-FROM molab/spark-yarn
+FROM lab/spark-yarn
 
 # Updates & Install Prerequisites
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget curl npm git

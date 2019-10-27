@@ -1,4 +1,4 @@
-FROM molab/spark-yarn
+FROM lab/spark-yarn
 
 RUN apt-get install -y build-essential python-dev python-pip
 

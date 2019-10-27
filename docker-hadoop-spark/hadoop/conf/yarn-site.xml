@@ -27,6 +27,6 @@
 </property>
 <property>
  <name>yarn.nodemanager.hostname</name>
- <value>yarn</value>
+ <value>0.0.0.0</value>
 </property>
 </configuration>
