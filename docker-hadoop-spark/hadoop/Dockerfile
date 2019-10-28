@@ -1,6 +1,5 @@
 FROM ubuntu:14.04
 
-
 RUN apt-get update
 RUN apt-get install -y software-properties-common
 
@@ -81,3 +80,41 @@ EXPOSE 9000 50070 50010 50020 50075 50090
 
 
 CMD ["hdfs"]
+
+
+## SPARK ##########################################
+RUN apt-get update && apt-get install -y curl && \
+    curl -s http://apache.mirror.anlx.net/spark/spark-2.3.4/spark-2.3.4-bin-hadoop2.6.tgz | tar -xz -C /usr/local/ && \
+    apt-get remove -y curl
+RUN cd /usr/local && ln -s spark-2.3.4-bin-hadoop2.6 spark
+ENV SPARK_HOME /usr/local/spark
+
+ENV YARN_CONF_DIR $HADOOP_HOME/etc/hadoop
+ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_HOME/bin
+
+RUN echo spark.yarn.jars hdfs:///spark-lib/*.jar > $SPARK_HOME/conf/spark-defaults.conf
+
+ADD bootstrap.sh /bootstrap.sh
+RUN chmod +x /bootstrap.sh
+RUN ./bootstrap.sh
+
+## ZEPPELIN
+# Updates & Install Prerequisites
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wget curl npm git
+WORKDIR /tmp/
+
+ENV ZEPPELIN_HOME /usr/local/zeppelin
+RUN mkdir -p $ZEPPELIN_HOME
+
+WORKDIR $ZEPPELIN_HOME
+RUN wget http://mirror.hosting90.cz/apache/zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz &&  tar -zvxf zeppelin-0.8.2-bin-all.tgz && rm zeppelin-0.8.2-bin-all.tgz && mv zeppelin-0.8.2-bin-all/* .
+
+EXPOSE 8080 8081
+
+ADD interpreter-setting.json $ZEPPELIN_HOME/interpreter/spark/interpreter-setting.json
+
+ADD zeppelin-env.sh $ZEPPELIN_HOME/conf/zeppelin-env.sh
+ADD zeppelin-site.xml $ZEPPELIN_HOME/conf/zeppelin-site.xml
+
+# GOTO IT
+#ENTRYPOINT /bin/bash

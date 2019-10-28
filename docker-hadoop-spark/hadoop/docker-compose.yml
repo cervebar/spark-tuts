@@ -31,3 +31,12 @@ yarn:
      - "8042:8042"
     links:
      - namenode:hdfs-namenode
+
+zeppelin:
+    image: lab/hadoop
+    command: /usr/local/zeppelin/bin/zeppelin.sh
+    hostname: zeppelin
+    ports:
+     - "8080:8080"
+    links:
+     - namenode:hdfs-namenode
