@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Apache Spark - DataFrame/DataSet API - základní syntax a práce s daty\n\n* Spark 2.3.4\n    * DataFrame: https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\n    * RDD: https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\n\n* datové zdroje: http://opendata.praha.eu/\n   * chytry svoz odpadu - historie zaplnitelnosti: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\n   * chytry svoz odpadu  - svozy kontejnerů na tříděný odpad: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\n   \n## hodí se\n* `df.printSchema()` - vypíše názvy a typy sloupců\n* `df.show(X)`- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger \n* Scala guide: https://www.analyticsvidhya.com/blog/2017/01/scala/",
+      "text": "%md\n## Apache Spark - DataFrame/DataSet API - základní syntax a práce s daty\n\n* Spark 2.3.4\n    * DataFrame: https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\n    * RDD: https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\n* Scala guide: https://www.analyticsvidhya.com/blog/2017/01/scala/\n\n* datové zdroje: http://opendata.praha.eu/\n   * chytry svoz odpadu - historie zaplnitelnosti: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\n   * chytry svoz odpadu  - svozy kontejnerů na tříděný odpad: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\n   \n## hodí se\n* `df.printSchema()` - vypíše názvy a typy sloupců\n* `df.show(X)`- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\n* `df.show(false)`- nezkracuje data v zobrazených sloupcích\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:46:53.306",
+      "dateUpdated": "2019-10-28 14:39:52.252",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1437,60 +1437,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "shjoin3.show()",
+      "text": "%md\n### UDF\n\u003d User Defined Function\nv podstate ma Spark API \"jenom\" spoustu predpripravenych, pokud ale chceme nejakou specialni transformaci, tak musime napsat vlastni udf\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:15:50.946",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|event_date|  id|pick_minfilllevel|decrease|code|pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|15512725|       29787|0006/ 264C00202|                48|       0|         17|           3.6|2019-10-12 18:03:32|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15509378|       29787|0006/ 264C00202|                48|       0|         19|           3.6|2019-10-12 15:03:03|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15507265|       29787|0006/ 264C00202|                49|       0|         19|           3.6|2019-10-12 13:02:50|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15504151|       29787|0006/ 264C00202|                46|       0|         16|           3.6|2019-10-12 10:02:20|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15501442|       29787|0006/ 264C00202|                44|       0|         13|           3.6|2019-10-12 06:20:36|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15512734|       29789|0006/ 264C00204|                70|       0|         14|           3.6|2019-10-12 18:03:32|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15509386|       29789|0006/ 264C00204|                68|       0|         15|           3.6|2019-10-12 15:03:04|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15507217|       29789|0006/ 264C00204|                68|       0|         16|           3.6|2019-10-12 13:02:45|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15504127|       29789|0006/ 264C00204|                59|       0|         13|           3.6|2019-10-12 10:02:16|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15500295|       29789|0006/ 264C00204|                50|       0|          9|           3.6|2019-10-12 06:01:38|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15499778|       29789|0006/ 264C00204|                50|       0|          9|           3.6|2019-10-12 05:54:07|                null|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n|15633165|       29795|0010/ 263C00436|                 0|       0|         14|           3.6|2019-10-18 18:52:30|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15629401|       29795|0010/ 263C00436|                 0|       0|         19|           3.6|2019-10-18 15:52:01|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15627051|       29795|0010/ 263C00436|                 0|       0|         31|           3.6|2019-10-18 13:51:42|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15623627|       29795|0010/ 263C00436|                 0|       0|         29|           3.6|2019-10-18 10:51:13|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15620294|       29795|0010/ 263C00436|                 0|       0|         13|           3.6|2019-10-18 06:50:35|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15618502|       29795|0010/ 263C00436|                 0|       0|         11|           3.6|2019-10-18 05:50:25|2019-10-26T10:27:...|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15632906|       29826|0009/ 003C00263|                75|       0|         19|           3.6|2019-10-18 18:26:11|                null|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15629148|       29826|0009/ 003C00263|                68|       0|         23|           3.6|2019-10-18 15:25:43|                null|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n|15626819|       29826|0009/ 003C00263|                68|       0|         24|           3.6|2019-10-18 13:25:24|                null|        0|2019-10-18|null|             null|    null|null|       null|          null|       null|        null|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\nonly showing top 20 rows\n\n"
-          }
-        ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d372"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "apps": [],
-      "jobName": "paragraph_1572272012558_428865669",
-      "id": "20191028-141332_1712655375",
-      "dateCreated": "2019-10-28 14:13:32.558",
-      "dateStarted": "2019-10-28 14:15:50.988",
-      "dateFinished": "2019-10-28 14:15:52.156",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n### UDF\nv podstate ma Spark API \"jenom\" spoustu predpripravenych, pokud ale chceme nejakou specialni transformaci, tak musime napsat vlastni udf\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:03:36.415",
+      "dateUpdated": "2019-10-28 14:40:51.644",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1516,9 +1465,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// zjistit informace o kontejneru 30039\n\n// filter \u0026 select\nval nadoba30039 \u003d shjoin3.filter($\"container_id\" \u003d\u003d\u003d 30039).select(\"event_date\",\"container_id\",\"percent_calculated\",\"temperature\",\"battery_status\",\"measured_at_utc\",\"pick_at_utc\",\"percent_before\",\"percent_now\")\nnadoba30039.show(5)\n\n// moje vlastni udf\nimport org.apache.spark.sql.functions.udf\n\nval measured \u003d udf((eventDate: String, temperature: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"namerena teplota \" + temperature + \"°C\" else \"nemereno\"\n})\nval picked \u003d udf((eventDate: String, percentNow: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"vysypano pri zaplnenosti \" + percentNow + \"%\" else \"nevysypano\"\n})\n\nval nadoba30039_2 \u003d nadoba30039.withColumn(\"info_m\", measured($\"measured_at_utc\",$\"temperature\")).withColumn(\"info_p\", picked($\"pick_at_utc\",$\"percent_before\"))\nval nadoba30039_3 \u003d nadoba30039_2.select(\"event_date\",\"info_m\",\"info_p\")\n\nnadoba30039_3.show(false)",
+      "text": "// zjistit informace o kontejneru 30039\n\n// filter \u0026 select\nval nadoba30039 \u003d shjoin3.filter($\"container_id\" \u003d\u003d\u003d 30039).select(\"event_date\",\"container_id\",\"percent_calculated\",\"temperature\",\"battery_status\",\"measured_at_utc\",\"pick_at_utc\",\"percent_before\",\"percent_now\")\nnadoba30039.show(5)\n\n// moje vlastni udf\nimport org.apache.spark.sql.functions.udf\n\nval measured \u003d udf((eventDate: String, temperature: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"namerena teplota \" + temperature + \"°C\" else \"nemereno\"\n})\nval picked \u003d udf((eventDate: String, percentNow: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"vysypano pri zaplnenosti \" + percentNow + \"%\" else \"nevysypano\"\n})\nval bothEvents \u003d udf((picked: String, measured: String) \u003d\u003e {\n    if(picked!\u003dnull \u0026\u0026 measured!\u003dnull) true else false\n})\n\nval nadoba30039_2 \u003d nadoba30039.withColumn(\"info_m\", measured($\"measured_at_utc\",$\"temperature\")).withColumn(\"info_p\", picked($\"pick_at_utc\",$\"percent_before\")).withColumn(\"both_events\", bothEvents($\"pick_at_utc\",$\"measured_at_utc\"))\n\nval nadoba30039_3 \u003d nadoba30039_2.filter(\"both_events\").select(\"event_date\",\"info_m\",\"info_p\").sort(\"event_date\")\n\nnadoba30039_3.show(false)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:38:28.033",
+      "dateUpdated": "2019-10-28 14:44:34.538",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1541,7 +1490,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|event_date|container_id|percent_calculated|temperature|battery_status|    measured_at_utc|pick_at_utc|percent_before|percent_now|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|2019-10-21|       30039|                90|         12|           3.6|2019-10-21 07:18:56|       null|          null|       null|\n|2019-10-21|       30039|                98|         12|           3.6|2019-10-21 04:18:56|       null|          null|       null|\n|2019-10-20|       30039|                92|         14|           3.6|2019-10-20 17:18:58|       null|          null|       null|\n|2019-10-20|       30039|                91|         14|           3.6|2019-10-20 15:18:59|       null|          null|       null|\n|2019-10-20|       30039|                69|         14|           3.6|2019-10-20 13:18:58|       null|          null|       null|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\nonly showing top 5 rows\n\n+----------+--------------------+--------------------+\n|event_date|              info_m|              info_p|\n+----------+--------------------+--------------------+\n|2019-10-21|namerena teplota ...|            nemereno|\n|2019-10-21|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-20|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-19|namerena teplota ...|            nemereno|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n|2019-10-18|namerena teplota ...|namerena teplota ...|\n+----------+--------------------+--------------------+\nonly showing top 20 rows\n\nnadoba30039: org.apache.spark.sql.DataFrame \u003d [event_date: string, container_id: int ... 7 more fields]\nimport org.apache.spark.sql.functions.udf\nmeasured: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,StringType,Some(List(StringType, StringType)))\npicked: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,StringType,Some(List(StringType, StringType)))\nnadoba30039_2: org.apache.spark.sql.DataFrame \u003d [event_date: string, container_id: int ... 9 more fields]\nnadoba30039_3: org.apache.spark.sql.DataFrame \u003d [event_date: string, info_m: string ... 1 more field]\n"
+            "data": "+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|event_date|container_id|percent_calculated|temperature|battery_status|    measured_at_utc|pick_at_utc|percent_before|percent_now|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|2019-10-21|       30039|                90|         12|           3.6|2019-10-21 07:18:56|       null|          null|       null|\n|2019-10-21|       30039|                98|         12|           3.6|2019-10-21 04:18:56|       null|          null|       null|\n|2019-10-20|       30039|                92|         14|           3.6|2019-10-20 17:18:58|       null|          null|       null|\n|2019-10-20|       30039|                91|         14|           3.6|2019-10-20 15:18:59|       null|          null|       null|\n|2019-10-20|       30039|                69|         14|           3.6|2019-10-20 13:18:58|       null|          null|       null|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\nonly showing top 5 rows\n\n+----------+---------------------+-----------------------------+\n|event_date|info_m               |info_p                       |\n+----------+---------------------+-----------------------------+\n|2019-10-01|namerena teplota 13°C|vysypano pri zaplnenosti 100%|\n|2019-10-01|namerena teplota 16°C|vysypano pri zaplnenosti 100%|\n|2019-10-01|namerena teplota 17°C|vysypano pri zaplnenosti 100%|\n|2019-10-01|namerena teplota 14°C|vysypano pri zaplnenosti 100%|\n|2019-10-01|namerena teplota 16°C|vysypano pri zaplnenosti 100%|\n|2019-10-01|namerena teplota 13°C|vysypano pri zaplnenosti 100%|\n|2019-10-04|namerena teplota 9°C |vysypano pri zaplnenosti 93% |\n|2019-10-04|namerena teplota 9°C |vysypano pri zaplnenosti 93% |\n|2019-10-04|namerena teplota 11°C|vysypano pri zaplnenosti 93% |\n|2019-10-04|namerena teplota 11°C|vysypano pri zaplnenosti 93% |\n|2019-10-04|namerena teplota 11°C|vysypano pri zaplnenosti 93% |\n|2019-10-04|namerena teplota 12°C|vysypano pri zaplnenosti 93% |\n|2019-10-08|namerena teplota 10°C|vysypano pri zaplnenosti 100%|\n|2019-10-08|namerena teplota 7°C |vysypano pri zaplnenosti 100%|\n|2019-10-08|namerena teplota 11°C|vysypano pri zaplnenosti 100%|\n|2019-10-08|namerena teplota 7°C |vysypano pri zaplnenosti 100%|\n|2019-10-08|namerena teplota 9°C |vysypano pri zaplnenosti 100%|\n|2019-10-08|namerena teplota 11°C|vysypano pri zaplnenosti 100%|\n|2019-10-11|namerena teplota 11°C|vysypano pri zaplnenosti 63% |\n|2019-10-11|namerena teplota 13°C|vysypano pri zaplnenosti 63% |\n+----------+---------------------+-----------------------------+\nonly showing top 20 rows\n\nnadoba30039: org.apache.spark.sql.DataFrame \u003d [event_date: string, container_id: int ... 7 more fields]\nimport org.apache.spark.sql.functions.udf\nmeasured: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,StringType,Some(List(StringType, StringType)))\npicked: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,StringType,Some(List(StringType, StringType)))\nbothEvents: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction2\u003e,BooleanType,Some(List(StringType, StringType)))\nnadoba30039_2: org.apache.spark.sql.DataFrame \u003d [event_date: string, container_id: int ... 10 more fields]\nnadoba30039_3: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [event_date: string, info_m: string ......"
           }
         ]
       },
@@ -1552,10 +1501,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d381",
-            "http://62067575309b:4040/jobs/job?id\u003d382",
-            "http://62067575309b:4040/jobs/job?id\u003d383",
-            "http://62067575309b:4040/jobs/job?id\u003d384"
+            "http://62067575309b:4040/jobs/job?id\u003d393",
+            "http://62067575309b:4040/jobs/job?id\u003d394",
+            "http://62067575309b:4040/jobs/job?id\u003d395",
+            "http://62067575309b:4040/jobs/job?id\u003d396"
           ],
           "interpreterSettingId": "spark"
         }
@@ -1564,8 +1513,8 @@
       "jobName": "paragraph_1572270844545_-1371750365",
       "id": "20191028-135404_319133906",
       "dateCreated": "2019-10-28 13:54:04.546",
-      "dateStarted": "2019-10-28 14:36:39.168",
-      "dateFinished": "2019-10-28 14:36:40.800",
+      "dateStarted": "2019-10-28 14:44:34.584",
+      "dateFinished": "2019-10-28 14:44:36.370",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
