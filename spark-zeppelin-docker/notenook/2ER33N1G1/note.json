@@ -252,9 +252,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// FLAT MAP type\n// explode\nval df_exp1 \u003d List(List(\"jedna\",\"dva\",\"tri\"), List(\"ctyri\",\"pet\",\"sest\")).toDF()\nval df_exp2 \u003d df_exp1.withColumn(\"exploded\", explode($\"value\"))\ndf_exp1.show()\ndf_exp2.show()\n\n//\nval df_split1 \u003d List(List(\"jedna;dva;tri;ctyri;pet;sest\")).toDF()\ndf_split1.show()\nval df_split2 \u003d df_split1.select()",
+      "text": "// EXPLODE vs SPLIT\n// explode: FLAT MAP type\nval df_exp1 \u003d List(List(\"jedna\",\"dva\",\"tri\"), List(\"ctyri\",\"pet\",\"sest\")).toDF()\nval df_exp2 \u003d df_exp1.withColumn(\"exploded\", explode($\"value\"))\ndf_exp1.show()\ndf_exp2.show()\n\n// split -\u003e do vice column\nval df_split1 \u003d List(\"jedna;dva;tri\").toDF()\ndf_split1.show()\n\nval df_split2 \u003d df_split1.withColumn(\"_tmp\", split($\"value\", \";\")).select(\n  $\"_tmp\".getItem(0).as(\"col1\"),\n  $\"_tmp\".getItem(1).as(\"col2\"),\n  $\"_tmp\".getItem(2).as(\"col3\")\n).drop(\"_tmp\")\n\ndf_split2.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:57:22.447",
+      "dateUpdated": "2019-10-28 13:03:33.577",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -272,11 +272,35 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------+\n|             value|\n+------------------+\n| [jedna, dva, tri]|\n|[ctyri, pet, sest]|\n+------------------+\n\n+------------------+--------+\n|             value|exploded|\n+------------------+--------+\n| [jedna, dva, tri]|   jedna|\n| [jedna, dva, tri]|     dva|\n| [jedna, dva, tri]|     tri|\n|[ctyri, pet, sest]|   ctyri|\n|[ctyri, pet, sest]|     pet|\n|[ctyri, pet, sest]|    sest|\n+------------------+--------+\n\n+-------------+\n|        value|\n+-------------+\n|jedna;dva;tri|\n+-------------+\n\n+-----+----+----+\n| col1|col2|col3|\n+-----+----+----+\n|jedna| dva| tri|\n+-----+----+----+\n\ndf_exp1: org.apache.spark.sql.DataFrame \u003d [value: array\u003cstring\u003e]\ndf_exp2: org.apache.spark.sql.DataFrame \u003d [value: array\u003cstring\u003e, exploded: string]\ndf_split1: org.apache.spark.sql.DataFrame \u003d [value: string]\ndf_split2: org.apache.spark.sql.DataFrame \u003d [col1: string, col2: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://62067575309b:4040/jobs/job?id\u003d284",
+            "http://62067575309b:4040/jobs/job?id\u003d285"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1572267274476_-2051720064",
       "id": "20191028-125434_1254572877",
       "dateCreated": "2019-10-28 12:54:34.477",
-      "status": "READY",
+      "dateStarted": "2019-10-28 13:03:04.683",
+      "dateFinished": "2019-10-28 13:03:05.504",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -881,9 +905,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "//groupBy: kolikrat byl ktery kontejner vysypan v unoru 2019?\nval df\u003dszn.select($\"container_id\",$\"pick_at_utc\")\nval df2 \u003d df.filter($\"pick_at_utc\".contains(\"2019-02\"))\nval df3 \u003d df2.groupBy(\"container_id\").count()\ndf3.show(10)",
+      "text": "//groupBy: kolikrat byl ktery kontejner vysypan v unoru 2019?\nval vysypan\u003dszn.select($\"container_id\",$\"pick_at_utc\")\nval vysypan2 \u003d vysypan.filter($\"pick_at_utc\".contains(\"2019-02\"))\nval vysypan3 \u003d vysypan2.groupBy(\"container_id\").count()\nvysypan3.show(5)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:37:40.294",
+      "dateUpdated": "2019-10-28 13:06:30.140",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -906,7 +930,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+------------+-----+\n|container_id|count|\n+------------+-----+\n|       29894|   12|\n|       29993|    2|\n|       29950|   14|\n|       29827|   10|\n|       30330|   22|\n|       29942|    2|\n|       30333|    4|\n|       29960|    6|\n|       29893|    2|\n|       30085|   14|\n+------------+-----+\nonly showing top 10 rows\n\ndf: org.apache.spark.sql.DataFrame \u003d [container_id: int, pick_at_utc: timestamp]\ndf2: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [container_id: int, pick_at_utc: timestamp]\ndf3: org.apache.spark.sql.DataFrame \u003d [container_id: int, count: bigint]\n"
+            "data": "+------------+-----+\n|container_id|count|\n+------------+-----+\n|       29894|   12|\n|       29993|    2|\n|       29950|   14|\n|       29827|   10|\n|       30330|   22|\n+------------+-----+\nonly showing top 5 rows\n\nvysypan: org.apache.spark.sql.DataFrame \u003d [container_id: int, pick_at_utc: timestamp]\nvysypan2: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [container_id: int, pick_at_utc: timestamp]\nvysypan3: org.apache.spark.sql.DataFrame \u003d [container_id: int, count: bigint]\n"
           }
         ]
       },
@@ -917,9 +941,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d220",
-            "http://62067575309b:4040/jobs/job?id\u003d221",
-            "http://62067575309b:4040/jobs/job?id\u003d222"
+            "http://62067575309b:4040/jobs/job?id\u003d286",
+            "http://62067575309b:4040/jobs/job?id\u003d287"
           ],
           "interpreterSettingId": "spark"
         }
@@ -928,23 +951,113 @@
       "jobName": "paragraph_1572260805656_217973668",
       "id": "20191028-110645_1932819943",
       "dateCreated": "2019-10-28 11:06:45.656",
-      "dateStarted": "2019-10-28 12:36:38.158",
-      "dateFinished": "2019-10-28 12:36:39.126",
+      "dateStarted": "2019-10-28 13:06:30.191",
+      "dateFinished": "2019-10-28 13:06:30.983",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "import org.apache.spark.sql.functions._\nval vysypan_datum \u003d vysypan.withColumn(\"date\", substring($\"pick_at_utc\",0,10)).withColumn(\"year\", substring($\"pick_at_utc\",0,4)).withColumn(\"month\", substring($\"pick_at_utc\",6,2)).drop($\"pick_at_utc\")\nvysypan_datum.show(3)",
       "user": "anonymous",
-      "config": {},
+      "dateUpdated": "2019-10-28 13:19:17.697",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+----------+----+-----+\n|container_id|      date|year|month|\n+------------+----------+----+-----+\n|       30046|2019-10-01|2019|   10|\n|       30327|2019-10-01|2019|   10|\n|       30064|2019-10-01|2019|   10|\n+------------+----------+----+-----+\nonly showing top 3 rows\n\nimport org.apache.spark.sql.functions._\nvysypan_datum: org.apache.spark.sql.DataFrame \u003d [container_id: int, date: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://62067575309b:4040/jobs/job?id\u003d298"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1572268246279_-1310818873",
+      "id": "20191028-131046_807834183",
+      "dateCreated": "2019-10-28 13:10:46.279",
+      "dateStarted": "2019-10-28 13:19:17.749",
+      "dateFinished": "2019-10-28 13:19:18.281",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// multi aggreagace - lze spojovat\nimport org.apache.spark.sql.functions\n\nval agg1 \u003d vysypan_datum.groupBy(\"year\",\"month\").agg(\n    functions.count(\"date\").as(\"celkem\")\n).sort(\"year\",\"month\")\nagg1.show()\n\nagg1.groupBy(\"year\").agg(\n    functions.max(\"celkem\").as(\"nejvice v mesici\"),\n    functions.min(\"celkem\").as(\"nejmin v mesici\")\n).sort(\"year\").show();",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-28 13:28:37.812",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+-----+------+\n|year|month|celkem|\n+----+-----+------+\n|2018|   12|   574|\n|2019|   01|  1686|\n|2019|   02|  2234|\n|2019|   03|  2599|\n|2019|   04|  2600|\n|2019|   05|  3033|\n|2019|   06|  2734|\n|2019|   07|  3193|\n|2019|   08|  2781|\n|2019|   09|  1553|\n|2019|   10|  1002|\n+----+-----+------+\n\n+----+----------------+---------------+\n|year|nejvice v mesici|nejmin v mesici|\n+----+----------------+---------------+\n|2018|             574|            574|\n|2019|            3193|           1002|\n+----+----------------+---------------+\n\nimport org.apache.spark.sql.functions\nagg1: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [year: string, month: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://62067575309b:4040/jobs/job?id\u003d308",
+            "http://62067575309b:4040/jobs/job?id\u003d309",
+            "http://62067575309b:4040/jobs/job?id\u003d310"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1572266280608_-1003236390",
       "id": "20191028-123800_1146633843",
       "dateCreated": "2019-10-28 12:38:00.608",
-      "status": "READY",
+      "dateStarted": "2019-10-28 13:27:59.503",
+      "dateFinished": "2019-10-28 13:28:03.972",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
