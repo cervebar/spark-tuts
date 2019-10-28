@@ -13,6 +13,7 @@ I use it to evaluate independently spark code in a more convenient way then a sp
 ## Start the container
 ```
   docker run -it -p 18080:18080 -p 8088:8080 -d mirkoprescha/spark-zeppelin-docker
+docker run -it -v $(pwd)/work:/work -v $(pwd)/notenook:/usr/zeppelin/zeppelin-0.8.1-bin-all/notebook/ -p 18080:18080 -p 8088:8080 -d mirkoprescha/spark-zeppelin-docker
 ```
 
 ## Open Zeppelin and Spark History Server  
