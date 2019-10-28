@@ -826,9 +826,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## Transformace (typicky) Wide: (můžou způsobit shuffle)\n\n* *groupByKey*\n* *reduceByKey*\n* combineByKey\n* *distinct*\n* intersection\n* repartition\n* coalesce\n* cogroup\n* groupWith\n* join\n   * leftOuterJoin\n   * rightOuterJoin",
+      "text": "%md\n## Transformace (typicky) Wide: (můžou způsobit shuffle)\n\n* groupByKey\n   * groupBy, agg{...} \n* reduceByKey\n* combineByKey\n* *distinct*\n* intersection\n* repartition\n* *coalesce*\n* cogroup\n* groupWith\n* join\n   * leftOuterJoin\n   * rightOuterJoin",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 11:45:29.243",
+      "dateUpdated": "2019-10-28 13:29:38.192",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1057,6 +1057,214 @@
       "dateCreated": "2019-10-28 12:38:00.608",
       "dateStarted": "2019-10-28 13:27:59.503",
       "dateFinished": "2019-10-28 13:28:03.972",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "agg1.registerTempTable(\"rok_mesic_vyneseni\")",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-28 13:31:04.311",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "warning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1572269399374_-1921171900",
+      "id": "20191028-132959_737440955",
+      "dateCreated": "2019-10-28 13:29:59.375",
+      "dateStarted": "2019-10-28 13:31:04.346",
+      "dateFinished": "2019-10-28 13:31:04.760",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect * from rok_mesic_vyneseni",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-28 13:32:58.154",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "year",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "month",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "celkem",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year": "string",
+                      "month": "string",
+                      "celkem": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": true
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "month",
+                  "index": 1.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "year",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "month",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "year\tmonth\tcelkem\n2018\t12\t574\n2019\t01\t1686\n2019\t02\t2234\n2019\t03\t2599\n2019\t04\t2600\n2019\t05\t3033\n2019\t06\t2734\n2019\t07\t3193\n2019\t08\t2781\n2019\t09\t1553\n2019\t10\t1002\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://62067575309b:4040/jobs/job?id\u003d311"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1572269390461_1502823874",
+      "id": "20191028-132950_743763809",
+      "dateCreated": "2019-10-28 13:29:50.461",
+      "dateStarted": "2019-10-28 13:31:24.260",
+      "dateFinished": "2019-10-28 13:31:25.527",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
