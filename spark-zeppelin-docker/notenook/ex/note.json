@@ -1,0 +1,530 @@
+{
+paragraphs: [
+{
+text: "%md
+## Welcome to Zeppelin.
+##### This is a live tutorial, you can run the code yourself. (Shift-Enter to Run)",
+user: "anonymous",
+dateUpdated: "Dec 17, 2016 3:32:15 PM",
+config: {
+colWidth: 12,
+editorHide: true,
+results: [
+{
+graph: {
+mode: "table",
+height: 300,
+optionOpen: false,
+keys: [ ],
+values: [ ],
+groups: [ ],
+scatter: { }
+}
+}
+],
+enabled: true,
+editorSetting: {
+language: "markdown",
+editOnDblClick: true
+},
+editorMode: "ace/mode/markdown",
+tableHide: false
+},
+settings: {
+params: { },
+forms: { }
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "HTML",
+data: "<div class="markdown-body">
+<h2>Welcome to Zeppelin.</h2>
+<h5>This is a live tutorial, you can run the code yourself. (Shift-Enter to Run)</h5>
+</div>"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423836981412_-1007008116",
+id: "20150213-231621_168813393",
+dateCreated: "Feb 13, 2015 11:16:21 PM",
+dateStarted: "Dec 17, 2016 3:32:15 PM",
+dateFinished: "Dec 17, 2016 3:32:18 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+title: "Load data into table",
+text: "import org.apache.commons.io.IOUtils
+import java.net.URL
+import java.nio.charset.Charset
+
+// Zeppelin creates and injects sc (SparkContext) and sqlContext (HiveContext or SqlContext)
+// So you don't need create them manually
+
+// load bank data
+val bankText = sc.parallelize(
+    IOUtils.toString(
+        new URL("https://s3.amazonaws.com/apache-zeppelin/tutorial/bank/bank.csv"),
+        Charset.forName("utf8")).split("\n"))
+
+case class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)
+
+val bank = bankText.map(s => s.split(";")).filter(s => s(0) != "\"age\"").map(
+    s => Bank(s(0).toInt, 
+            s(1).replaceAll("\"", ""),
+            s(2).replaceAll("\"", ""),
+            s(3).replaceAll("\"", ""),
+            s(5).replaceAll("\"", "").toInt
+        )
+).toDF()
+bank.registerTempTable("bank")",
+user: "anonymous",
+dateUpdated: "Dec 17, 2016 3:30:09 PM",
+config: {
+colWidth: 12,
+title: true,
+enabled: true,
+editorMode: "ace/mode/scala",
+results: [
+{
+graph: {
+mode: "table",
+height: 300,
+optionOpen: false
+}
+}
+],
+editorSetting: {
+language: "scala",
+editOnDblClick: false
+}
+},
+settings: {
+params: { },
+forms: { }
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "TEXT",
+data: "import org.apache.commons.io.IOUtils
+import java.net.URL
+import java.nio.charset.Charset
+bankText: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[36] at parallelize at <console>:43
+defined class Bank
+bank: org.apache.spark.sql.DataFrame = [age: int, job: string ... 3 more fields]
+warning: there were 1 deprecation warning(s); re-run with -deprecation for details
+"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423500779206_-1502780787",
+id: "20150210-015259_1403135953",
+dateCreated: "Feb 10, 2015 1:52:59 AM",
+dateStarted: "Dec 17, 2016 3:30:09 PM",
+dateFinished: "Dec 17, 2016 3:30:58 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+text: "%sql 
+select age, count(1) value
+from bank 
+where age < 30 
+group by age 
+order by age",
+user: "anonymous",
+dateUpdated: "Mar 17, 2017 12:18:02 PM",
+config: {
+colWidth: 4,
+results: [
+{
+graph: {
+mode: "multiBarChart",
+height: 366,
+optionOpen: false
+},
+helium: { }
+}
+],
+enabled: true,
+editorSetting: {
+language: "sql",
+editOnDblClick: false
+},
+editorMode: "ace/mode/sql"
+},
+settings: {
+params: { },
+forms: { }
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "TABLE",
+data: "age    value
+19    4
+20    3
+21    7
+22    9
+23    20
+24    24
+25    44
+26    77
+27    94
+28    103
+29    97
+"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423500782552_-1439281894",
+id: "20150210-015302_1492795503",
+dateCreated: "Feb 10, 2015 1:53:02 AM",
+dateStarted: "Dec 17, 2016 3:30:13 PM",
+dateFinished: "Dec 17, 2016 3:31:04 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+text: "%sql 
+select age, count(1) value 
+from bank 
+where age < ${maxAge=30} 
+group by age 
+order by age",
+user: "anonymous",
+dateUpdated: "Mar 17, 2017 12:17:39 PM",
+config: {
+colWidth: 4,
+results: [
+{
+graph: {
+mode: "multiBarChart",
+height: 294,
+optionOpen: false
+},
+helium: { }
+}
+],
+enabled: true,
+editorSetting: {
+language: "sql",
+editOnDblClick: false
+},
+editorMode: "ace/mode/sql"
+},
+settings: {
+params: {
+maxAge: "35"
+},
+forms: {
+maxAge: {
+name: "maxAge",
+defaultValue: "30",
+hidden: false
+}
+}
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "TABLE",
+data: "age    value
+19    4
+20    3
+21    7
+22    9
+23    20
+24    24
+25    44
+26    77
+27    94
+28    103
+29    97
+30    150
+31    199
+32    224
+33    186
+34    231
+"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423720444030_-1424110477",
+id: "20150212-145404_867439529",
+dateCreated: "Feb 12, 2015 2:54:04 PM",
+dateStarted: "Dec 17, 2016 3:30:58 PM",
+dateFinished: "Dec 17, 2016 3:31:07 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+text: "%sql 
+select age, count(1) value 
+from bank 
+where marital="${marital=single,single|divorced|married}" 
+group by age 
+order by age",
+user: "anonymous",
+dateUpdated: "Mar 17, 2017 12:18:18 PM",
+config: {
+colWidth: 4,
+results: [
+{
+graph: {
+mode: "stackedAreaChart",
+height: 280,
+optionOpen: false
+},
+helium: { }
+}
+],
+enabled: true,
+editorSetting: {
+language: "sql",
+editOnDblClick: false
+},
+editorMode: "ace/mode/sql"
+},
+settings: {
+params: {
+marital: "single"
+},
+forms: {
+marital: {
+name: "marital",
+defaultValue: "single",
+options: [
+{
+value: "single"
+},
+{
+value: "divorced"
+},
+{
+value: "married"
+}
+],
+hidden: false
+}
+}
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "TABLE",
+data: "age    value
+19    4
+20    3
+21    7
+22    9
+23    17
+24    13
+25    33
+26    56
+27    64
+28    78
+29    56
+30    92
+31    86
+32    105
+33    61
+34    75
+35    46
+36    50
+37    43
+38    44
+39    30
+40    25
+41    19
+42    23
+43    21
+44    20
+45    15
+46    14
+47    12
+48    12
+49    11
+50    8
+51    6
+52    9
+53    4
+55    3
+56    3
+57    2
+58    7
+59    2
+60    5
+66    2
+69    1
+"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423836262027_-210588283",
+id: "20150213-230422_1600658137",
+dateCreated: "Feb 13, 2015 11:04:22 PM",
+dateStarted: "Dec 17, 2016 3:31:05 PM",
+dateFinished: "Dec 17, 2016 3:31:09 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+text: "%md
+## Congratulations, it's done.
+##### You can create your own notebook in 'Notebook' menu. Good luck!",
+user: "anonymous",
+dateUpdated: "Dec 17, 2016 3:30:24 PM",
+config: {
+colWidth: 12,
+editorHide: true,
+results: [
+{
+graph: {
+mode: "table",
+height: 300,
+optionOpen: false
+}
+}
+],
+enabled: true,
+editorSetting: {
+language: "markdown",
+editOnDblClick: true
+},
+editorMode: "ace/mode/markdown",
+tableHide: false
+},
+settings: {
+params: { },
+forms: { }
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "HTML",
+data: "<div class="markdown-body">
+<h2>Congratulations, it&rsquo;s done.</h2>
+<h5>You can create your own notebook in &lsquo;Notebook&rsquo; menu. Good luck!</h5>
+</div>"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1423836268492_216498320",
+id: "20150213-230428_1231780373",
+dateCreated: "Feb 13, 2015 11:04:28 PM",
+dateStarted: "Dec 17, 2016 3:30:24 PM",
+dateFinished: "Dec 17, 2016 3:30:29 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+text: "%md
+
+About bank data
+
+```
+Citation Request:
+  This dataset is public available for research. The details are described in [Moro et al., 2011]. 
+  Please include this citation if you plan to use this database:
+
+  [Moro et al., 2011] S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. 
+  In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM'2011, pp. 117-121, Guimarães, Portugal, October, 2011. EUROSIS.
+
+  Available at: [pdf] http://hdl.handle.net/1822/14838
+                [bib] http://www3.dsi.uminho.pt/pcortez/bib/2011-esm-1.txt
+```",
+user: "anonymous",
+dateUpdated: "Dec 17, 2016 3:30:34 PM",
+config: {
+colWidth: 12,
+editorHide: true,
+results: [
+{
+graph: {
+mode: "table",
+height: 300,
+optionOpen: false
+}
+}
+],
+enabled: true,
+editorSetting: {
+language: "markdown",
+editOnDblClick: true
+},
+editorMode: "ace/mode/markdown",
+tableHide: false
+},
+settings: {
+params: { },
+forms: { }
+},
+results: {
+code: "SUCCESS",
+msg: [
+{
+type: "HTML",
+data: "<div class="markdown-body">
+<p>About bank data</p>
+<pre><code>Citation Request:
+  This dataset is public available for research. The details are described in [Moro et al., 2011]. 
+  Please include this citation if you plan to use this database:
+
+  [Moro et al., 2011] S. Moro, R. Laureano and P. Cortez. Using Data Mining for Bank Direct Marketing: An Application of the CRISP-DM Methodology. 
+  In P. Novais et al. (Eds.), Proceedings of the European Simulation and Modelling Conference - ESM&#39;2011, pp. 117-121, Guimarães, Portugal, October, 2011. EUROSIS.
+
+  Available at: [pdf] http://hdl.handle.net/1822/14838
+                [bib] http://www3.dsi.uminho.pt/pcortez/bib/2011-esm-1.txt
+</code></pre>
+</div>"
+}
+]
+},
+apps: [ ],
+jobName: "paragraph_1427420818407_872443482",
+id: "20150326-214658_12335843",
+dateCreated: "Mar 26, 2015 9:46:58 PM",
+dateStarted: "Dec 17, 2016 3:30:34 PM",
+dateFinished: "Dec 17, 2016 3:30:34 PM",
+status: "FINISHED",
+progressUpdateIntervalMs: 500
+},
+{
+config: { },
+settings: {
+params: { },
+forms: { }
+},
+apps: [ ],
+jobName: "paragraph_1435955447812_-158639899",
+id: "20150703-133047_853701097",
+dateCreated: "Jul 3, 2015 1:30:47 PM",
+status: "READY",
+progressUpdateIntervalMs: 500
+}
+],
+name: "Basic Features (Spark)",
+id: "2A94M5J1Z",
+angularObjects: {
+2C73DY9P9:shared_process: [ ]
+},
+config: {
+looknfeel: "default"
+},
+info: { }
+}

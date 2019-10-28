@@ -3,7 +3,7 @@
     {
       "text": "%md\n## Apache Spark - DataFrame/DataSet API - základní syntax a práce s daty\n\n* Spark 2.3.4\n    * DataFrame: https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\n    * RDD: https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\n* Scala guide: https://www.analyticsvidhya.com/blog/2017/01/scala/\n\n* datové zdroje: http://opendata.praha.eu/\n   * chytry svoz odpadu - historie zaplnitelnosti: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\n   * chytry svoz odpadu  - svozy kontejnerů na tříděný odpad: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\n   \n## hodí se\n* `df.printSchema()` - vypíše názvy a typy sloupců\n* `df.show(X)`- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\n* `df.show(false)`- nezkracuje data v zobrazených sloupcích\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:39:52.252",
+      "dateUpdated": "2019-10-28 14:59:08.260",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,7 +16,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": false
       },
       "settings": {
@@ -28,7 +28,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eApache Spark - základní syntax a práce s daty\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003edatové zdroje: \u003ca href\u003d\"http://opendata.praha.eu/\"\u003ehttp://opendata.praha.eu/\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - historie zaplnitelnosti: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - svozy kontejnerů na tříděný odpad: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003ehodí se\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003edf.printSchema()\u003c/code\u003e - vypíše názvy a typy sloupců\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(X)\u003c/code\u003e- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eApache Spark - DataFrame/DataSet API - základní syntax a práce s daty\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eSpark 2.3.4\n    \u003cul\u003e\n      \u003cli\u003eDataFrame: \u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/sql-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n      \u003cli\u003eRDD: \u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003eScala guide: \u003ca href\u003d\"https://www.analyticsvidhya.com/blog/2017/01/scala/\"\u003ehttps://www.analyticsvidhya.com/blog/2017/01/scala/\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003edatové zdroje: \u003ca href\u003d\"http://opendata.praha.eu/\"\u003ehttp://opendata.praha.eu/\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - historie zaplnitelnosti: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - svozy kontejnerů na tříděný odpad: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003ehodí se\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003edf.printSchema()\u003c/code\u003e - vypíše názvy a typy sloupců\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(X)\u003c/code\u003e- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(false)\u003c/code\u003e- nezkracuje data v zobrazených sloupcích\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -36,15 +36,15 @@
       "jobName": "paragraph_1572255444776_1730217125",
       "id": "20191028-093724_2122815264",
       "dateCreated": "2019-10-28 09:37:24.776",
-      "dateStarted": "2019-10-28 10:34:59.858",
-      "dateFinished": "2019-10-28 10:35:01.757",
+      "dateStarted": "2019-10-28 14:59:08.301",
+      "dateFinished": "2019-10-28 14:59:08.354",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n## READ\n* *read* (csv, parquet, avro, textfile, ...)\n* *toDF* (RDD parralelize)\n* jdbc\n* IOUtils",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 11:57:23.780",
+      "dateUpdated": "2019-10-28 14:59:08.401",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -62,17 +62,28 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eREAD\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003cem\u003eread\u003c/em\u003e (csv, parquet, avro, textfile, \u0026hellip;)\u003c/li\u003e\n  \u003cli\u003e\u003cem\u003etoDF\u003c/em\u003e (RDD parralelize)\u003c/li\u003e\n  \u003cli\u003ejdbc\u003c/li\u003e\n  \u003cli\u003eIOUtils\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1572263344175_1975974396",
       "id": "20191028-114904_943505836",
       "dateCreated": "2019-10-28 11:49:04.175",
-      "status": "READY",
+      "dateStarted": "2019-10-28 14:59:08.442",
+      "dateFinished": "2019-10-28 14:59:08.464",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// vytvoreni dataframe z kodu\nval pole \u003d List(\"jedna\",\"dva\",\"tri\")\nval dataframe \u003d pole.toDF()\ndataframe.show()\ndataframe.printSchema()",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:11:14.471",
+      "dateUpdated": "2019-10-28 14:59:08.538",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -95,7 +106,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-----+\n|value|\n+-----+\n|jedna|\n|  dva|\n|  tri|\n+-----+\n\npole: List[String] \u003d List(jedna, dva, tri)\ndataframe: org.apache.spark.sql.DataFrame \u003d [value: string]\n"
+            "data": "+-----+\n|value|\n+-----+\n|jedna|\n|  dva|\n|  tri|\n+-----+\n\nroot\n |-- value: string (nullable \u003d true)\n\npole: List[String] \u003d List(jedna, dva, tri)\ndataframe: org.apache.spark.sql.DataFrame \u003d [value: string]\n"
           }
         ]
       },
@@ -103,15 +114,15 @@
       "jobName": "paragraph_1572263412507_2037678123",
       "id": "20191028-115012_113346922",
       "dateCreated": "2019-10-28 11:50:12.507",
-      "dateStarted": "2019-10-28 12:00:07.437",
-      "dateFinished": "2019-10-28 12:00:07.802",
+      "dateStarted": "2019-10-28 14:59:08.571",
+      "dateFinished": "2019-10-28 14:59:09.058",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// načtení souboru\nval szn2019q4 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"detekce-svozu-nadob-2019-q4.csv\")\n\nszn2019q4.printSchema()\nszn2019q4.show(10)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:11:24.880",
+      "dateUpdated": "2019-10-28 14:59:09.141",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -135,7 +146,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "szn2019q4: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 7 more fields]\n"
+            "data": "root\n |-- id: integer (nullable \u003d true)\n |-- container_id: integer (nullable \u003d true)\n |-- pick_minfilllevel: integer (nullable \u003d true)\n |-- decrease: integer (nullable \u003d true)\n |-- code: string (nullable \u003d true)\n |-- pick_at_utc: timestamp (nullable \u003d true)\n |-- percent_before: integer (nullable \u003d true)\n |-- percent_now: integer (nullable \u003d true)\n |-- event_driven: boolean (nullable \u003d true)\n\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|\n|15271066|       30034|               30|      20|0003/ 012C00493|2019-10-01 05:20:36|           100|          0|       false|\n|15271124|       30060|               50|      20|0003/ 030C00542|2019-10-01 05:25:38|           100|          7|       false|\n|15271202|       30040|               30|      20|0003/ 013C00502|2019-10-01 05:39:07|           100|         10|       false|\n|15271205|       30109|               30|      20|0003/ 076C00634|2019-10-01 05:39:08|            89|          4|       false|\n|15271776|       30071|               30|      20|0003/ 036C00563|2019-10-01 06:01:40|            97|          3|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 10 rows\n\nszn2019q4: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 7 more fields]\n"
           }
         ]
       },
@@ -146,8 +157,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d0",
-            "http://62067575309b:4040/jobs/job?id\u003d1"
+            "http://62067575309b:4040/jobs/job?id\u003d397",
+            "http://62067575309b:4040/jobs/job?id\u003d398",
+            "http://62067575309b:4040/jobs/job?id\u003d399"
           ],
           "interpreterSettingId": "spark"
         }
@@ -156,15 +168,15 @@
       "jobName": "paragraph_1572253272232_-1665768480",
       "id": "20191028-090112_1378723200",
       "dateCreated": "2019-10-28 09:01:12.233",
-      "dateStarted": "2019-10-28 10:35:01.881",
-      "dateFinished": "2019-10-28 10:35:07.940",
+      "dateStarted": "2019-10-28 14:59:09.184",
+      "dateFinished": "2019-10-28 14:59:09.803",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n## NARROW transformace\n\nTransformace,které nevyvolávají shuffle (přenos dat po síti), lazy evaulation.\n\n* select\n* withColumn\n* distinct\n* drop\n* filter\n* union",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:24:44.644",
+      "dateUpdated": "2019-10-28 14:59:09.888",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -182,17 +194,28 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eNARROW transformace\u003c/h2\u003e\n\u003cp\u003eTransformace,které nevyvolávají shuffle (přenos dat po síti), lazy evaulation.\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eselect\u003c/li\u003e\n  \u003cli\u003ewithColumn\u003c/li\u003e\n  \u003cli\u003edistinct\u003c/li\u003e\n  \u003cli\u003edrop\u003c/li\u003e\n  \u003cli\u003efilter\u003c/li\u003e\n  \u003cli\u003eunion\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1572261393476_-282160138",
       "id": "20191028-111633_1032845225",
       "dateCreated": "2019-10-28 11:16:33.476",
-      "status": "READY",
+      "dateStarted": "2019-10-28 14:59:09.922",
+      "dateFinished": "2019-10-28 14:59:09.942",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// disitnct: jaké můžou být minfilllevely?\nszn2019q4.select(\"pick_minfilllevel\").distinct().show()\n\n//  withColumn - přidá sloupec, (jméno sloupce, transformační funkce)\nval zaplnenost \u003d szn2019q4.withColumn(\"zaplnenost\", when($\"percent_before\" \u003e 50, \"hodne\").otherwise(\"malo\") )\nzaplnenost.show(5)\n\n// select: projekce\nzaplnenost.select($\"container_id\",$\"zaplnenost\").show(3)\n\n// select: projekce + transformace\nszn2019q4.select($\"container_id\", $\"pick_minfilllevel\", $\"pick_minfilllevel\" + 20).show(3)\n\n// filter: ktere kontejnery byly vyneseny skoro nebo zcela plne\nval vyneseny \u003d szn.filter($\"percent_before\" \u003e 95 )\nval pocet_vynesenych \u003d vyneseny.count()\nvyneseny.show(5)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 12:54:34.375",
+      "dateUpdated": "2019-10-28 14:59:10.021",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -215,7 +238,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-----------------+\n|pick_minfilllevel|\n+-----------------+\n|               40|\n|               50|\n|               30|\n+-----------------+\n\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|zaplnenost|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|     hodne|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|      malo|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|      malo|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|     hodne|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|     hodne|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\nonly showing top 5 rows\n\n+------------+----------+\n|container_id|zaplnenost|\n+------------+----------+\n|       30046|     hodne|\n|       30327|      malo|\n|       30064|      malo|\n+------------+----------+\nonly showing top 3 rows\n\n+------------+-----------------+------------------------+\n|container_id|pick_minfilllevel|(pick_minfilllevel + 20)|\n+------------+-----------------+------------------------+\n|       30046|               50|                      70|\n|       30327|               30|                      50|\n|       30064|               30|                      50|\n+------------+-----------------+------------------------+\nonly showing top 3 rows\n\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|\n|15271066|       30034|               30|      20|0003/ 012C00493|2019-10-01 05:20:36|           100|          0|       false|\n|15271124|       30060|               50|      20|0003/ 030C00542|2019-10-01 05:25:38|           100|          7|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 5 rows\n\n+------------------+\n|             value|\n+------------------+\n| [jedna, dva, tri]|\n|[ctyri, pet, sest]|\n+------------------+\n\n+------------------+--------+\n|             value|exploded|\n+------------------+--------+\n| [jedna, dva, tri]|   jedna|\n| [jedna, dva, tri]|     dva|\n| [jedna, dva, tri]|     tri|\n|[ctyri, pet, sest]|   ctyri|\n|[ctyri, pet, sest]|     pet|\n|[ctyri, pet, sest]|    sest|\n+------------------+--------+\n\nzaplnenost: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nvyneseny: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [id: int, container_id: int ... 7 more fields]\npocet_vynesenych: Long \u003d 11479\ndf_exp1: org.apache.spark.sql.DataFrame \u003d [value: array\u003cstring\u003e]\ndf_exp2: org.apache.spark.sql.DataFrame \u003d [value: array\u003cstring\u003e, exploded: string]\n"
+            "data": "+-----------------+\n|pick_minfilllevel|\n+-----------------+\n|               40|\n|               50|\n|               30|\n+-----------------+\n\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|zaplnenost|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|     hodne|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|      malo|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|      malo|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|     hodne|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|     hodne|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+----------+\nonly showing top 5 rows\n\n+------------+----------+\n|container_id|zaplnenost|\n+------------+----------+\n|       30046|     hodne|\n|       30327|      malo|\n|       30064|      malo|\n+------------+----------+\nonly showing top 3 rows\n\n+------------+-----------------+------------------------+\n|container_id|pick_minfilllevel|(pick_minfilllevel + 20)|\n+------------+-----------------+------------------------+\n|       30046|               50|                      70|\n|       30327|               30|                      50|\n|       30064|               30|                      50|\n+------------+-----------------+------------------------+\nonly showing top 3 rows\n\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|\n|15271066|       30034|               30|      20|0003/ 012C00493|2019-10-01 05:20:36|           100|          0|       false|\n|15271124|       30060|               50|      20|0003/ 030C00542|2019-10-01 05:25:38|           100|          7|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 5 rows\n\nzaplnenost: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nvyneseny: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [id: int, container_id: int ... 7 more fields]\npocet_vynesenych: Long \u003d 11479\n"
           }
         ]
       },
@@ -226,18 +249,16 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d270",
-            "http://62067575309b:4040/jobs/job?id\u003d271",
-            "http://62067575309b:4040/jobs/job?id\u003d272",
-            "http://62067575309b:4040/jobs/job?id\u003d273",
-            "http://62067575309b:4040/jobs/job?id\u003d274",
-            "http://62067575309b:4040/jobs/job?id\u003d275",
-            "http://62067575309b:4040/jobs/job?id\u003d276",
-            "http://62067575309b:4040/jobs/job?id\u003d277",
-            "http://62067575309b:4040/jobs/job?id\u003d278",
-            "http://62067575309b:4040/jobs/job?id\u003d279",
-            "http://62067575309b:4040/jobs/job?id\u003d280",
-            "http://62067575309b:4040/jobs/job?id\u003d281"
+            "http://62067575309b:4040/jobs/job?id\u003d400",
+            "http://62067575309b:4040/jobs/job?id\u003d401",
+            "http://62067575309b:4040/jobs/job?id\u003d402",
+            "http://62067575309b:4040/jobs/job?id\u003d403",
+            "http://62067575309b:4040/jobs/job?id\u003d404",
+            "http://62067575309b:4040/jobs/job?id\u003d405",
+            "http://62067575309b:4040/jobs/job?id\u003d406",
+            "http://62067575309b:4040/jobs/job?id\u003d407",
+            "http://62067575309b:4040/jobs/job?id\u003d408",
+            "http://62067575309b:4040/jobs/job?id\u003d409"
           ],
           "interpreterSettingId": "spark"
         }
@@ -246,15 +267,15 @@
       "jobName": "paragraph_1572263468752_-2020833025",
       "id": "20191028-115108_2018975206",
       "dateCreated": "2019-10-28 11:51:08.752",
-      "dateStarted": "2019-10-28 12:53:54.516",
-      "dateFinished": "2019-10-28 12:53:57.095",
+      "dateStarted": "2019-10-28 14:59:10.066",
+      "dateFinished": "2019-10-28 14:59:12.096",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// EXPLODE vs SPLIT\n// explode: FLAT MAP type\nval df_exp1 \u003d List(List(\"jedna\",\"dva\",\"tri\"), List(\"ctyri\",\"pet\",\"sest\")).toDF()\nval df_exp2 \u003d df_exp1.withColumn(\"exploded\", explode($\"value\"))\ndf_exp1.show()\ndf_exp2.show()\n\n// split -\u003e do vice column\nval df_split1 \u003d List(\"jedna;dva;tri\").toDF()\ndf_split1.show()\n\nval df_split2 \u003d df_split1.withColumn(\"_tmp\", split($\"value\", \";\")).select(\n  $\"_tmp\".getItem(0).as(\"col1\"),\n  $\"_tmp\".getItem(1).as(\"col2\"),\n  $\"_tmp\".getItem(2).as(\"col3\")\n).drop(\"_tmp\")\n\ndf_split2.show()",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:03:33.577",
+      "dateUpdated": "2019-10-28 14:59:12.182",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -288,8 +309,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d284",
-            "http://62067575309b:4040/jobs/job?id\u003d285"
+            "http://62067575309b:4040/jobs/job?id\u003d410",
+            "http://62067575309b:4040/jobs/job?id\u003d411"
           ],
           "interpreterSettingId": "spark"
         }
@@ -298,15 +319,15 @@
       "jobName": "paragraph_1572267274476_-2051720064",
       "id": "20191028-125434_1254572877",
       "dateCreated": "2019-10-28 12:54:34.477",
-      "dateStarted": "2019-10-28 13:03:04.683",
-      "dateFinished": "2019-10-28 13:03:05.504",
+      "dateStarted": "2019-10-28 14:59:12.217",
+      "dateFinished": "2019-10-28 14:59:12.975",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// nacteme dalsi data a protoze vime,ze jsou stejna, muzeme spojit do jednoho DataSetu\nval szn2018122019Q3 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"detekce-svozu-nadob-201812-2019Q3.csv\")\n  \nszn2018122019Q3.show(3)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 10:53:50.169",
+      "dateUpdated": "2019-10-28 14:59:13.016",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -340,9 +361,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://62067575309b:4040/jobs/job?id\u003d4",
-            "http://62067575309b:4040/jobs/job?id\u003d5",
-            "http://62067575309b:4040/jobs/job?id\u003d6"
+            "http://62067575309b:4040/jobs/job?id\u003d412",
+            "http://62067575309b:4040/jobs/job?id\u003d413",
+            "http://62067575309b:4040/jobs/job?id\u003d414"
           ],
           "interpreterSettingId": "spark"
         }
@@ -351,15 +372,15 @@
       "jobName": "paragraph_1572256472727_1936850616",
       "id": "20191028-095432_287439436",
       "dateCreated": "2019-10-28 09:54:32.728",
-      "dateStarted": "2019-10-28 10:35:09.684",
-      "dateFinished": "2019-10-28 10:35:11.028",
+      "dateStarted": "2019-10-28 14:59:13.081",
+      "dateFinished": "2019-10-28 14:59:13.993",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "// UNION\nval szn \u003d szn2019q4.union(szn2018122019Q3)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 10:35:11.087",
+      "dateUpdated": "2019-10-28 14:59:14.093",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -382,7 +403,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "org.apache.spark.sql.AnalysisException: Union can only be performed on tables with the compatible column types. string \u003c\u003e boolean at the 8th column of the second table;;\n\u0027Union\n:- Relation[id#10,container_id#11,pick_minfilllevel#12,decrease#13,code#14,pick_at_utc#15,percent_before#16,percent_now#17,event_driven#18] csv\n+- Relation[id#87,container_id#88,pick_minfilllevel#89,decrease#90,code#91,pick_at_utc#92,percent_before#93,percent_now#94,event_driven#95] csv\n\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:42)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:92)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11$$anonfun$apply$12.apply(CheckAnalysis.scala:261)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11$$anonfun$apply$12.apply(CheckAnalysis.scala:258)\n  at scala.collection.immutable.List.foreach(List.scala:381)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11.apply(CheckAnalysis.scala:258)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11.apply(CheckAnalysis.scala:247)\n  at scala.collection.immutable.List.foreach(List.scala:381)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:247)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:85)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:127)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:85)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:92)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:57)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:55)\n  at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:47)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:74)\n  at org.apache.spark.sql.Dataset.withSetOperator(Dataset.scala:3319)\n  at org.apache.spark.sql.Dataset.union(Dataset.scala:1840)\n  ... 47 elided\n"
+            "data": "org.apache.spark.sql.AnalysisException: Union can only be performed on tables with the compatible column types. string \u003c\u003e boolean at the 8th column of the second table;;\n\u0027Union\n:- Relation[id#9457,container_id#9458,pick_minfilllevel#9459,decrease#9460,code#9461,pick_at_utc#9462,percent_before#9463,percent_now#9464,event_driven#9465] csv\n+- Relation[id#9799,container_id#9800,pick_minfilllevel#9801,decrease#9802,code#9803,pick_at_utc#9804,percent_before#9805,percent_now#9806,event_driven#9807] csv\n\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.failAnalysis(CheckAnalysis.scala:42)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.failAnalysis(Analyzer.scala:92)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11$$anonfun$apply$12.apply(CheckAnalysis.scala:261)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11$$anonfun$apply$12.apply(CheckAnalysis.scala:258)\n  at scala.collection.immutable.List.foreach(List.scala:381)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11.apply(CheckAnalysis.scala:258)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1$$anonfun$apply$11.apply(CheckAnalysis.scala:247)\n  at scala.collection.immutable.List.foreach(List.scala:381)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:247)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$$anonfun$checkAnalysis$1.apply(CheckAnalysis.scala:85)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:127)\n  at org.apache.spark.sql.catalyst.analysis.CheckAnalysis$class.checkAnalysis(CheckAnalysis.scala:85)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:92)\n  at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:57)\n  at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:55)\n  at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:47)\n  at org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:74)\n  at org.apache.spark.sql.Dataset.withSetOperator(Dataset.scala:3319)\n  at org.apache.spark.sql.Dataset.union(Dataset.scala:1840)\n  ... 69 elided\n"
           }
         ]
       },
@@ -390,8 +411,8 @@
       "jobName": "paragraph_1572256802527_-1127095320",
       "id": "20191028-100002_1173038509",
       "dateCreated": "2019-10-28 10:00:02.528",
-      "dateStarted": "2019-10-28 10:35:11.187",
-      "dateFinished": "2019-10-28 10:35:11.564",
+      "dateStarted": "2019-10-28 14:59:14.129",
+      "dateFinished": "2019-10-28 14:59:14.720",
       "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
