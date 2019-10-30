@@ -1493,6 +1493,45 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "szn.cache()\n\nimport org.apache.spark.storage.StorageLevel\nszn.persist(StorageLevel.MEMORY_ONLY)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 12:23:21.017",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.storage.StorageLevel\nres52: szn.type \u003d [id: int, container_id: int ... 7 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1572438050460_370847556",
+      "id": "20191030-122050_33376414",
+      "dateCreated": "2019-10-30 12:20:50.460",
+      "dateStarted": "2019-10-30 12:23:21.061",
+      "dateFinished": "2019-10-30 12:23:21.455",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "nadoba30039.show(5)\n\nnadoba30039.select(\"temperature\").distinct().show()\n",
       "user": "anonymous",
       "dateUpdated": "2019-10-30 12:10:01.490",
