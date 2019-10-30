@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Apache Spark - DataFrame/DataSet API - základní syntax a práce s daty\n\n### Spark 2.3.4\n* DataFrame: https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\n* RDD:\n    * https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\n    * příklady: https://wikis.nyu.edu/display/NYUHPC/Big+Data+Tutorial+3%3A+Introduction+to+Spark\n\n### Scala\n* guide: https://www.analyticsvidhya.com/blog/2017/01/scala/\n\n### datové zdroje:\n* http://opendata.praha.eu/\n   * chytry svoz odpadu - historie zaplnitelnosti: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\n   * chytry svoz odpadu  - svozy kontejnerů na tříděný odpad: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\n   \n### hodí se\n* `df.printSchema()` - vypíše názvy a typy sloupců\n* `df.show(X)`- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\n* `df.show(false)`- nezkracuje data v zobrazených sloupcích\n\n\n|| Zeppelin creates and injects sc (SparkContext) and sqlContext (HiveContext or SqlContext)\n",
+      "text": "%md\n## Apache Spark - DataFrame/DataSet API - základní syntax a práce s daty\n\n* Spark 2.3.4\n    * DataFrame: https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\n    * RDD: https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\n* Scala guide: https://www.analyticsvidhya.com/blog/2017/01/scala/\n\n* datové zdroje: http://opendata.praha.eu/\n   * chytry svoz odpadu - historie zaplnitelnosti: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\n   * chytry svoz odpadu  - svozy kontejnerů na tříděný odpad: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\n   \n## hodí se\n* `df.printSchema()` - vypíše názvy a typy sloupců\n* `df.show(X)`- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\n* `df.show(false)`- nezkracuje data v zobrazených sloupcích\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-29 12:19:37.383",
+      "dateUpdated": "2019-10-28 14:59:08.260",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,7 +16,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "tableHide": false
       },
       "settings": {
@@ -28,7 +28,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eApache Spark - DataFrame/DataSet API - základní syntax a práce s daty\u003c/h2\u003e\n\u003ch3\u003eSpark 2.3.4\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003eDataFrame: \u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/sql-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003eRDD:\n    \u003cul\u003e\n      \u003cli\u003e\u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n      \u003cli\u003epříklady: \u003ca href\u003d\"https://wikis.nyu.edu/display/NYUHPC/Big+Data+Tutorial+3%3A+Introduction+to+Spark\"\u003ehttps://wikis.nyu.edu/display/NYUHPC/Big+Data+Tutorial+3%3A+Introduction+to+Spark\u003c/a\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eScala\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003eguide: \u003ca href\u003d\"https://www.analyticsvidhya.com/blog/2017/01/scala/\"\u003ehttps://www.analyticsvidhya.com/blog/2017/01/scala/\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003edatové zdroje:\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ca href\u003d\"http://opendata.praha.eu/\"\u003ehttp://opendata.praha.eu/\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - historie zaplnitelnosti: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - svozy kontejnerů na tříděný odpad: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003ehodí se\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003edf.printSchema()\u003c/code\u003e - vypíše názvy a typy sloupců\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(X)\u003c/code\u003e- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(false)\u003c/code\u003e- nezkracuje data v zobrazených sloupcích\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eApache Spark - DataFrame/DataSet API - základní syntax a práce s daty\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eSpark 2.3.4\n    \u003cul\u003e\n      \u003cli\u003eDataFrame: \u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/sql-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/sql-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n      \u003cli\u003eRDD: \u003ca href\u003d\"https://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\"\u003ehttps://spark.apache.org/docs/2.3.4/rdd-programming-guide.html\u003c/a\u003e\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003eScala guide: \u003ca href\u003d\"https://www.analyticsvidhya.com/blog/2017/01/scala/\"\u003ehttps://www.analyticsvidhya.com/blog/2017/01/scala/\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\n  \u003cp\u003edatové zdroje: \u003ca href\u003d\"http://opendata.praha.eu/\"\u003ehttp://opendata.praha.eu/\u003c/a\u003e\u003c/p\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - historie zaplnitelnosti: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003echytry svoz odpadu - svozy kontejnerů na tříděný odpad: \u003ca href\u003d\"http://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\"\u003ehttp://opendata.praha.eu/dataset/chytry-svoz-odpadu-svozy-kontejneru-na-trideny-odpad\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003ehodí se\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ccode\u003edf.printSchema()\u003c/code\u003e - vypíše názvy a typy sloupců\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(X)\u003c/code\u003e- zobrazí X počet řádků z datasetu, nezáleží na pořadí, nevyvolává action trigger\u003c/li\u003e\n  \u003cli\u003e\u003ccode\u003edf.show(false)\u003c/code\u003e- nezkracuje data v zobrazených sloupcích\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -36,15 +36,15 @@
       "jobName": "paragraph_1572255444776_1730217125",
       "id": "20191028-093724_2122815264",
       "dateCreated": "2019-10-28 09:37:24.776",
-      "dateStarted": "2019-10-29 12:02:29.500",
-      "dateFinished": "2019-10-29 12:02:33.350",
+      "dateStarted": "2019-10-28 14:59:08.301",
+      "dateFinished": "2019-10-28 14:59:08.354",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## READ\n* *read* (csv, parquet, avro, textfile, ...)\n* *toDF* (RDD parralelize)\n* IOUtils",
+      "text": "%md\n## READ\n* *read* (csv, parquet, avro, textfile, ...)\n* *toDF* (RDD parralelize)\n* jdbc\n* IOUtils",
       "user": "anonymous",
-      "dateUpdated": "2019-10-29 12:19:16.794",
+      "dateUpdated": "2019-10-28 14:59:08.401",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -122,7 +122,7 @@
     {
       "text": "// načtení souboru\nval szn2019q4 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"detekce-svozu-nadob-2019-q4.csv\")\n\nszn2019q4.printSchema()\nszn2019q4.show(10)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-30 09:27:22.012",
+      "dateUpdated": "2019-10-28 14:59:09.141",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -150,106 +150,13 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://0e720bbb5243:4040/jobs/job?id\u003d0",
-            "http://0e720bbb5243:4040/jobs/job?id\u003d1",
-            "http://0e720bbb5243:4040/jobs/job?id\u003d2"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1572253272232_-1665768480",
       "id": "20191028-090112_1378723200",
       "dateCreated": "2019-10-28 09:01:12.233",
-      "dateStarted": "2019-10-30 09:27:22.072",
-      "dateFinished": "2019-10-30 09:27:34.686",
+      "dateStarted": "2019-10-28 14:59:09.184",
+      "dateFinished": "2019-10-28 14:59:09.803",
       "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "\nval x \u003d (1 to 10).toList\nval numbersDf \u003d x.toDF(\"number\")\nnumbersDf.rdd.partitions.size // \u003d\u003e 2\nnumbersDf.write.csv(\"number-folder\")\n  \n",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-30 09:54:54.950",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "x: List[Int] \u003d List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nnumbersDf: org.apache.spark.sql.DataFrame \u003d [number: int]\n"
-          }
-        ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://0e720bbb5243:4040/jobs/job?id\u003d7"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "apps": [],
-      "jobName": "paragraph_1572427558002_1328004453",
-      "id": "20191030-092558_2133920470",
-      "dateCreated": "2019-10-30 09:25:58.005",
-      "dateStarted": "2019-10-30 09:54:55.044",
-      "dateFinished": "2019-10-30 09:54:56.011",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "import org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\n\n\nval bankText \u003d sc.parallelize(\n    IOUtils.toString(\n        new URL(\"https://s3.amazonaws.com/apache-zeppelin/tutorial/bank/bank.csv\"),\n        Charset.forName(\"utf8\")).split(\" \"))\n\n\n// TODO dat do referencniho reseni i s tou class\ncase class Bank(age: Integer, job: String, marital: String, education: String, balance: Integer)\n\nval bank \u003d bankText.map(s \u003d\u003e s.split(\";\")).filter(s \u003d\u003e s(0) ! \\\"\\\\\\\"age\\\\\\\"\\\").map(\n    s \\u003d\\u003e Bank(s(0).toInt, \n            s(1).replaceAll(\\\"\\\\\\\"\\\", \\\"\\\"),\n            s(2).replaceAll(\\\"\\\\\\\"\\\", \\\"\\\"),\n            s(3).replaceAll(\\\"\\\\\\\"\\\", \\\"\\\"),\n            s(5).replaceAll(\\\"\\\\\\\"\\\", \\\"\\\").toInt\n        )\n).toDF()\nbank.registerTempTable(\\\"bank\\\")\",",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-29 12:21:18.531",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1572351405763_2044585676",
-      "id": "20191029-121645_1008539344",
-      "dateCreated": "2019-10-29 12:16:45.763",
-      "status": "READY",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -1006,7 +913,7 @@
     {
       "text": "%sql\nselect * from rok_mesic_vyneseni",
       "user": "anonymous",
-      "dateUpdated": "2019-10-29 20:54:10.926",
+      "dateUpdated": "2019-10-28 15:10:06.733",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1474,8 +1381,8 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "spark-simple",
-  "id": "2ER33N1G1",
+  "name": "spark-simple-copy",
+  "id": "2ER33N1G2",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
