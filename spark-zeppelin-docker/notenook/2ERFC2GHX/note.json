@@ -386,9 +386,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n## AKCE\n* aggregační fce\n  * count\n  * min, max, avg\n  * sum, variance,...",
+      "text": "%md\n## COUNT , distinct, aggregační fce\n  * count\n  * distinct\n  * min, max, avg\n  * sum, variance,...",
       "user": "anonymous",
-      "dateUpdated": "2019-10-30 10:00:01.950",
+      "dateUpdated": "2019-10-30 11:00:53.020",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -414,9 +414,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// COUNT\n// kolik mam zaznamu?\nval szn2019q4_count \u003d szn2019q4.count()\nval szn20182019q3_count \u003d szn2018122019Q3_3.count()\nval szn_count \u003d szn.count().longValue()\n\nprint(\"Počet záznamů:2019q4: \" + szn2019q4_count + \", 2018-2019q3: \" + szn20182019q3_count + \", dohromady tedy: \" +  szn_count)",
+      "text": "// informace o datsetu:\n\n// kolik mám zaznamu?\n// kolik unikátních odpadových kontejnerů máme\n// jaká je nevyšší/nejnižší zaplněnost\n// jaká je průměrná zaplněnost před a po (percent_before, percent_now)\n// jaké mám různé id konetjnerů\n// kolik je kontejnerů\n// co to je min fill level, jakých hodnot nabývají\n// jaké jsou různé kódové označení a kolik jich je\n// může být položka sloupce event_driven null?\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.508",
+      "dateUpdated": "2019-10-30 10:50:36.127",
       "config": {
         "tableHide": true,
         "editorSetting": {
@@ -453,115 +453,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// získávání informací o datasetu\nszn.show(4)\n//TIP: dataframe szn budeme prepouzivat nekolikrat, co se ale deje ve skutecnosti, znovu nacteme data - znovu aplikujeme transformace a to pri kazde akci -\u003e cache()\nszn.cache()\n\n// pote co u nebudeme pouzivat nezapomene pamet uvlonit\n// szn.unpersist()",
+      "text": "%md\n## groupBy, groupBy + aggregace, join",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.508",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 4 rows\n\nres82: szn.type \u003d [id: int, container_id: int ... 7 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721508_-1585096079",
-      "id": "20191028-124535_1200032620",
-      "dateCreated": "2019-10-28 15:15:21.508",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "// kolik unikátních odpadových kontejnerů máme\nval container_id\u003dszn.select(\"container_id\").distinct()\nval container_id_count \u003d container_id.count()\ncontainer_id.show(3)\n\n// jaká je nevyšší, nejnižší zaplněnost\nval minmax\u003d szn.select(min($\"percent_now\"), max($\"percent_now\"))\nminmax.show()\n\n// dalsi info\nval szn_ids\u003dszn.select(\"id\").distinct()\nval ids_count \u003d szn_ids.count()\nszn_ids.show(3)\n\nval pick_minfilllevel\u003dszn.select(\"pick_minfilllevel\").distinct()\npick_minfilllevel.show(4)\n\nval kod\u003dszn.select(\"code\").distinct()\nval kod_count \u003d kod.count()\nkod.show(10)\n\nval eventDriven\u003dszn.select(\"event_driven\").distinct()\nval eventDrivenCount \u003d eventDriven.count()\neventDriven.show(2)\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.509",
-      "config": {
-        "tableHide": false,
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 4 rows\n\n+------------+\n|container_id|\n+------------+\n|       29993|\n|       29894|\n|       29834|\n+------------+\nonly showing top 3 rows\n\n+----------------+----------------+\n|min(percent_now)|max(percent_now)|\n+----------------+----------------+\n|               0|              50|\n+----------------+----------------+\n\n+--------+\n|      id|\n+--------+\n|15315806|\n|15328950|\n|15342350|\n+--------+\nonly showing top 3 rows\n\n+-----------------+\n|pick_minfilllevel|\n+-----------------+\n|               40|\n|               35|\n|               50|\n|               30|\n+-----------------+\n\n+---------------+\n|           code|\n+---------------+\n|0006/ 263C00234|\n|0003/ 024C00532|\n|0001/ 016C01532|\n|0001/ 038C00043|\n|0008/ 034C01384|\n|0010/ 265C00453|\n|0016/ 038C01422|\n|0001/ 035C01593|\n|0006/ 260C00165|\n|0009/ 157C00354|\n+---------------+\nonly showing top 10 rows\n\n+------------+\n|event_driven|\n+------------+\n|        null|\n|       false|\n+------------+\n\ncontainer_id: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [container_id: int]\ncontainer_id_count: Long \u003d 420\nminmax: org.apache.spark.sql.DataFrame \u003d [min(percent_now): int, max(percent_now): int]\nszn_ids: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [id: int]\nids_count: Long \u003d 13847\npick_minfilllevel: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [pick_minfilllevel: int]\nkod: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [code: string]\nkod_count: Long \u003d 429\neventDriven: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [event_driven: boolean]\neventDrivenCount: Long \u003d 2\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721509_-544259861",
-      "id": "20191028-105655_287503105",
-      "dateCreated": "2019-10-28 15:15:21.509",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "// TODO md\n// TIPS \u0026 TRICKS\n\n// v cem se casto chybuje \nval df \u003d szn.filter(\"percent_now\" \u003e 50)\n\n// projde\nval df \u003d szn.filter(szn(\"percent_now\") \u003e 20)\n\n// syntax scala zkratka $\nval need \u003d szn.filter($\"percent_now\" \u003e 20)\nneed.show()",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.509",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721509_1726404722",
-      "id": "20191028-113901_174018730",
-      "dateCreated": "2019-10-28 15:15:21.509",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n## Transformace (typicky) Wide: (můžou způsobit shuffle)\n\n* groupByKey\n   * *groupBy, agg{...}* \n* *distinct*\n* intersection\n* repartition\n* *coalesce*\n* cogroup\n* groupWith\n* join\n   * leftOuterJoin\n   * rightOuterJoin",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.510",
+      "dateUpdated": "2019-10-30 11:13:31.413",
       "config": {
         "editorSetting": {
           "language": "markdown",
@@ -588,9 +482,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "szn.show(5)",
+      "text": "// kolikrát byl který kontejner vysypán v únoru 2019?\n// kdy byl kontejner vysypán",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.510",
+      "dateUpdated": "2019-10-30 11:13:18.613",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -602,45 +496,8 @@
         "editorMode": "ace/mode/scala",
         "fontSize": 9.0,
         "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15270292|       30046|               50|      20|0003/ 014C00513|2019-10-01 05:00:41|           100|          1|       false|\n|15270477|       30327|               30|      20|0001/ 002C01582|2019-10-01 05:01:47|            38|          1|       false|\n|15270800|       30064|               30|      20|0003/ 035C00551|2019-10-01 05:12:45|            44|         16|       false|\n|15270879|       30116|               30|      20|0003/ 084C00644|2019-10-01 05:12:49|           100|         10|       false|\n|15271061|       29927|               30|      20|0006/ 262C00242|2019-10-01 05:19:44|           100|          0|       false|\n+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 5 rows\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721510_-1186814765",
-      "id": "20191028-122708_279857358",
-      "dateCreated": "2019-10-28 15:15:21.510",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "//groupBy: kolikrat byl ktery kontejner vysypan v unoru 2019?\nval vysypan\u003dszn.select($\"container_id\",$\"pick_at_utc\")\nval vysypan2 \u003d vysypan.filter($\"pick_at_utc\".contains(\"2019-02\"))\nval vysypan3 \u003d vysypan2.groupBy(\"container_id\").count()\nvysypan3.show(5)\n",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.513",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
+        "enabled": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -664,47 +521,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "import org.apache.spark.sql.functions._\nval vysypan_datum \u003d vysypan.withColumn(\"date\", substring($\"pick_at_utc\",0,10)).withColumn(\"year\", substring($\"pick_at_utc\",0,4)).withColumn(\"month\", substring($\"pick_at_utc\",6,2)).drop($\"pick_at_utc\")\nvysypan_datum.show(3)",
+      "text": "//groupby + aggregace\n\n// jaký je průmerný počet vysypání kontejnerů v jednotlivých letech\n// kolikrát byl který kontejner vysypán",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.517",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+------------+----------+----+-----+\n|container_id|      date|year|month|\n+------------+----------+----+-----+\n|       30046|2019-10-01|2019|   10|\n|       30327|2019-10-01|2019|   10|\n|       30064|2019-10-01|2019|   10|\n+------------+----------+----+-----+\nonly showing top 3 rows\n\nimport org.apache.spark.sql.functions._\nvysypan_datum: org.apache.spark.sql.DataFrame \u003d [container_id: int, date: string ... 2 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721514_1535043336",
-      "id": "20191028-131046_807834183",
-      "dateCreated": "2019-10-28 15:15:21.514",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "// multi aggreagace - lze spojovat\nimport org.apache.spark.sql.functions\n\nval agg1 \u003d vysypan_datum.groupBy(\"year\",\"month\").agg(\n    functions.count(\"date\").as(\"celkem\")\n).sort(\"year\",\"month\")\nagg1.show()\n\nagg1.groupBy(\"year\").agg(\n    functions.max(\"celkem\").as(\"nejvice v mesici\"),\n    functions.min(\"celkem\").as(\"nejmin v mesici\")\n).sort(\"year\").show();",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.518",
+      "dateUpdated": "2019-10-30 11:20:37.489",
       "config": {
         "editorSetting": {
           "language": "scala",
