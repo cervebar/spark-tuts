@@ -523,7 +523,7 @@
     {
       "text": "//groupby + aggregace\n\n// jaký je průmerný počet vysypání kontejnerů v jednotlivých letech\n// kolikrát byl který kontejner vysypán",
       "user": "anonymous",
-      "dateUpdated": "2019-10-30 11:20:37.489",
+      "dateUpdated": "2019-10-30 11:24:06.232",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -535,7 +535,9 @@
         "editorMode": "ace/mode/scala",
         "fontSize": 9.0,
         "results": {},
-        "enabled": true
+        "enabled": true,
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -599,7 +601,7 @@
     {
       "text": "%sql\nselect * from rok_mesic_vyneseni",
       "user": "anonymous",
-      "dateUpdated": "2019-10-29 20:54:09.971",
+      "dateUpdated": "2019-10-30 11:50:20.671",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -753,9 +755,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### JOIN\n\n* broadcast\n* left\n* right",
+      "text": "%md\n### JOINY",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.520",
+      "dateUpdated": "2019-10-30 11:43:20.189",
       "config": {
         "editorSetting": {
           "language": "markdown",
@@ -782,9 +784,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// TODO male ukazky typu joinu\n// left join\n\n// right join\n\n// outerjoin\n\n\n// broadcast join\n\n// inner",
+      "text": "// inner\n// outer\n// full\n// full_outer\n// left\n// left_outer\n// right\n// right_outer\n// left_semi\n// left_anti",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.521",
+      "dateUpdated": "2019-10-30 11:44:00.936",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -811,81 +813,59 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// nas dataset a chytry odpad Prahy iOT\n// historie zaplnenosti nadob\nval hist2019q4 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"historie-zaplnenosti-nadob-2019-q4.csv\")\n\nhist2019q4.printSchema()\nhist2019q4.show(10)",
+      "text": "%md\n\u003d\u003d\u003d\u003d Chytrý odpad Prahy\ndata: http://opendata.praha.eu/dataset/chytry-svoz-odpadu-historicka-data-zaplnenosti",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.521",
+      "dateUpdated": "2019-10-30 11:52:12.523",
       "config": {
-        "tableHide": false,
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": true,
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/markdown",
-        "fontSize": 9.0,
-        "editorHide": true,
-        "results": {},
-        "enabled": true
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "root\n |-- id: integer (nullable \u003d true)\n |-- container_id: integer (nullable \u003d true)\n |-- code: string (nullable \u003d true)\n |-- percent_calculated: integer (nullable \u003d true)\n |-- upturned: integer (nullable \u003d true)\n |-- temperature: integer (nullable \u003d true)\n |-- battery_status: double (nullable \u003d true)\n |-- measured_at_utc: timestamp (nullable \u003d true)\n |-- prediction_utc: string (nullable \u003d true)\n |-- firealarm: integer (nullable \u003d true)\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|                null|        0|\n|15681051|       30007|0009/ 159C00371|                87|       0|         13|           3.6|2019-10-21 07:18:01|                null|        0|\n|15681045|       30291|0001/ 012C00656|                 0|       0|         11|           3.6|2019-10-21 07:17:12|2019-10-29T11:17:...|        0|\n|15681024|       29820|0006/ 263C00233|               100|       0|         11|           3.6|2019-10-21 07:15:33|                null|        0|\n|15680993|       30038|0003/ 012C00497|                18|       0|         14|           3.6|2019-10-21 07:14:21|2019-11-07T16:42:...|        0|\n|15680974|       29898|0001/ 038C00043|                58|       0|         12|           3.7|2019-10-21 07:13:04|2019-10-25T20:38:...|        0|\n|15680966|       30021|0009/ 161C00395|                57|       0|         15|           3.6|2019-10-21 07:12:38|2019-10-30T20:19:...|        0|\n|15680956|       30290|0001/ 012C00655|                 0|       0|         13|           3.6|2019-10-21 07:12:25|2019-11-08T16:12:...|        0|\n|15680955|       30090|0003/ 041C00601|                 9|       0|         11|           3.6|2019-10-21 07:12:17|2019-11-20T21:02:...|        0|\n|15680934|       30008|0009/ 159C00372|                54|       0|         14|           3.6|2019-10-21 07:11:20|2019-10-29T02:38:...|        0|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\nonly showing top 10 rows\n\nhist2019q4: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\n"
-          }
-        ]
-      },
       "apps": [],
-      "jobName": "paragraph_1572275721521_-708994947",
-      "id": "20191028-133644_1955477241",
-      "dateCreated": "2019-10-28 15:15:21.521",
+      "jobName": "paragraph_1572436294975_2104196465",
+      "id": "20191030-115134_226116120",
+      "dateCreated": "2019-10-30 11:51:34.975",
       "status": "READY",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// nas dataset a chytry odpad Prahy iOT\n\nval hist2019q4_count \u003d hist2019q4.count()\nval szn2019q4_count \u003d szn2019q4.count()\n\n// inner join\nval shjoin \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\")\nshjoin.show(1)\n\n// mame dvakrat container_id :/\nval shjoin2 \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\").drop(szn2019q4(\"container_id\"))\n\nshjoin2.show(1)\n\n// porad ale trosku nesmysl, chci spojit data ze stejneho dne\nval hist2019q4_2 \u003d hist2019q4.withColumn(\"event_date\", substring($\"measured_at_utc\",0,10))\nval szn2019q4_2 \u003d szn2019q4.withColumn(\"event_date\", substring($\"pick_at_utc\",0,10))\n\nval shjoin3 \u003d hist2019q4_2.join(szn2019q4_2,szn2019q4_2(\"container_id\") \u003d\u003d\u003d hist2019q4_2(\"container_id\") \u0026\u0026 szn2019q4_2(\"event_date\") \u003d\u003d\u003d hist2019q4_2(\"event_date\") , \"outer\").drop(szn2019q4_2(\"container_id\")).drop(szn2019q4_2(\"event_date\"))\n\nshjoin3.show(1)",
+      "text": "// načíst a spojit data",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.523",
+      "dateUpdated": "2019-10-30 11:59:02.198",
       "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|       30039|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|event_date|  id|pick_minfilllevel|decrease|code|pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|15512725|       29787|0006/ 264C00202|                48|       0|         17|           3.6|2019-10-12 18:03:32|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\nonly showing top 1 row\n\nhist2019q4_count: Long \u003d 44731\nszn2019q4_count: Long \u003d 1002\nshjoin: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\nshjoin2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 16 more fields]\nhist2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 9 more fields]\nszn2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nshjoin3: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\n"
-          }
-        ]
-      },
       "apps": [],
-      "jobName": "paragraph_1572275721523_70680391",
-      "id": "20191028-133847_1281814611",
-      "dateCreated": "2019-10-28 15:15:21.523",
+      "jobName": "paragraph_1572436727676_1821882806",
+      "id": "20191030-115847_185262742",
+      "dateCreated": "2019-10-30 11:58:47.677",
       "status": "READY",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -918,9 +898,65 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// zjistit informace o kontejneru 30039\n\n// filter \u0026 select\nval nadoba30039 \u003d shjoin3.filter($\"container_id\" \u003d\u003d\u003d 30039).select(\"event_date\",\"container_id\",\"percent_calculated\",\"temperature\",\"battery_status\",\"measured_at_utc\",\"pick_at_utc\",\"percent_before\",\"percent_now\")\nnadoba30039.show(5)\n\n// moje vlastni udf\nimport org.apache.spark.sql.functions.udf\n\nval measured \u003d udf((eventDate: String, temperature: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"namerena teplota \" + temperature + \"°C\" else \"nemereno\"\n})\nval picked \u003d udf((eventDate: String, percentNow: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"vysypano pri zaplnenosti \" + percentNow + \"%\" else \"nevysypano\"\n})\nval bothEvents \u003d udf((picked: String, measured: String) \u003d\u003e {\n    if(picked!\u003dnull \u0026\u0026 measured!\u003dnull) true else false\n})\n\nval nadoba30039_2 \u003d nadoba30039.withColumn(\"info_m\", measured($\"measured_at_utc\",$\"temperature\")).withColumn(\"info_p\", picked($\"pick_at_utc\",$\"percent_before\")).withColumn(\"both_events\", bothEvents($\"pick_at_utc\",$\"measured_at_utc\"))\n\nval nadoba30039_3 \u003d nadoba30039_2.filter(\"both_events\").select(\"event_date\",\"info_m\",\"info_p\").sort(\"event_date\")\n\nnadoba30039_3.show(false)",
+      "text": "// jak vypadá UDF, jak se píše\n\n\n// moje vlastní udf",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.526",
+      "dateUpdated": "2019-10-30 11:59:30.033",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1572436742282_-1588658461",
+      "id": "20191030-115902_1039665396",
+      "dateCreated": "2019-10-30 11:59:02.282",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// filter \u0026 select\nval nadoba30039 \u003d shjoin3.filter($\"container_id\" \u003d\u003d\u003d 30039).select(\"event_date\",\"container_id\",\"percent_calculated\",\"temperature\",\"battery_status\",\"measured_at_utc\",\"pick_at_utc\",\"percent_before\",\"percent_now\")\nnadoba30039.show(5)\n\n// moje vlastni udf\nimport org.apache.spark.sql.functions.udf\n\nval measured \u003d udf((eventDate: String, temperature: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"namerena teplota \" + temperature + \"°C\" else \"nemereno\"\n})\nval picked \u003d udf((eventDate: String, percentNow: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"vysypano pri zaplnenosti \" + percentNow + \"%\" else \"nevysypano\"\n})\nval bothEvents \u003d udf((picked: String, measured: String) \u003d\u003e {\n    if(picked!\u003dnull \u0026\u0026 measured!\u003dnull) true else false\n})\n\nval nadoba30039_2 \u003d nadoba30039.withColumn(\"info_m\", measured($\"measured_at_utc\",$\"temperature\")).withColumn(\"info_p\", picked($\"pick_at_utc\",$\"percent_before\")).withColumn(\"both_events\", bothEvents($\"pick_at_utc\",$\"measured_at_utc\"))\n\nval nadoba30039_3 \u003d nadoba30039_2.filter(\"both_events\").select(\"event_date\",\"info_m\",\"info_p\").sort(\"event_date\")\n\nnadoba30039_3.show(false)\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 11:56:51.329",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1572436603871_-165917218",
+      "id": "20191030-115643_1466344469",
+      "dateCreated": "2019-10-30 11:56:43.871",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// zjistit informace o kontejneru 30039\n// viz zadani cviceni\n\n// 1) ke každé události přiřaďte název měsíce (leden, únor,...)\n// 2) k události měření teploty připište ok, not_ok podle toho jestli byla teplota pod/nad 10°C",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 12:11:22.964",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -951,115 +987,6 @@
       "jobName": "paragraph_1572275721525_-1435476127",
       "id": "20191028-135404_319133906",
       "dateCreated": "2019-10-28 15:15:21.525",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n## K procvičení (když zbude čas)\n### Formáty\n* parquet\n  * defaultní pro Spark\n  * binární formát\n  * column oriented\n  * hodí se pro projekce (potřebuji z velkých dat, pouze některé sloupčeky)\n* avro\n* csv,tsv\n* json\n   * výhody:\n     * lehce se čte i ostatním mimo Big Data svět (webaři, data science)\n  * pozor: validní json je co file to {}, pro big data se ovšeh hodí pouze validní json per file (správně je ten formát názvem GSON) ",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.526",
-      "config": {
-        "tableHide": true,
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/markdown",
-        "fontSize": 9.0,
-        "editorHide": false,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eK procvičení (když zbude čas)\u003c/h2\u003e\n\u003ch3\u003eFormáty\u003c/h3\u003e\n\u003cul\u003e\n  \u003cli\u003eparquet\u003c/li\u003e\n  \u003cli\u003edefaultní pro Spark\u003c/li\u003e\n  \u003cli\u003ebinární formát\u003c/li\u003e\n  \u003cli\u003ecolumn oriented\u003c/li\u003e\n  \u003cli\u003ehodí se pro projekce (potřebuji z velkých dat, pouze některé sloupčeky)\u003c/li\u003e\n  \u003cli\u003eavro\u003c/li\u003e\n  \u003cli\u003ecsv,tsv\u003c/li\u003e\n  \u003cli\u003ejson\u003c/li\u003e\n  \u003cli\u003evýhody:\n    \u003cul\u003e\n      \u003cli\u003elehce se čte i ostatním mimo Big Data svět (webaři, data science)\u003c/li\u003e\n    \u003c/ul\u003e\n  \u003c/li\u003e\n  \u003cli\u003epozor: validní json je co file to {}, pro big data se ovšeh hodí pouze validní json per file (správně je ten formát názvem GSON)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721526_236282326",
-      "id": "20191028-090125_948111294",
-      "dateCreated": "2019-10-28 15:15:21.526",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "case class Person(name: String, age: Long)\n\n// Encoders are created for case classes\nval caseClassDS \u003d Seq(Person(\"Andy\", 32)).toDS()\ncaseClassDS.show()\n// +----+---+\n// |name|age|\n// +----+---+\n// |Andy| 32|\n// +----+---+\n\n// Encoders for most common types are automatically provided by importing spark.implicits._\nval primitiveDS \u003d Seq(1, 2, 3).toDS()\nprimitiveDS.map(_ + 1).collect() // Returns: Array(2, 3, 4)\n\n// DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name\nval path \u003d \"examples/src/main/resources/people.json\"\nval peopleDS \u003d spark.read.json(path).as[Person]\npeopleDS.show()\n// +----+-------+\n// | age|   name|\n// +----+-------+\n// |null|Michael|\n// |  30|   Andy|\n// |  19| Justin|\n// +----+-------+",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.527",
-      "config": {
-        "tableHide": false,
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/markdown",
-        "fontSize": 9.0,
-        "editorHide": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "\u003cconsole\u003e:16: error: value toDS is not a member of Seq[Person]\n       val caseClassDS \u003d Seq(Person(\"Andy\", 32)).toDS()\n                                                 ^\n\u003cconsole\u003e:25: error: value toDS is not a member of Seq[Int]\n       val primitiveDS \u003d Seq(1, 2, 3).toDS()\n                                      ^\n\u003cconsole\u003e:30: error: Unable to find encoder for type stored in a Dataset.  Primitive types (Int, String, etc) and Product types (case classes) are supported by importing spark.implicits._  Support for serializing other types will be added in future releases.\n       val peopleDS \u003d spark.read.json(path).as[Person]\n                                              ^\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721527_1375610164",
-      "id": "20191028-123851_1861184664",
-      "dateCreated": "2019-10-28 15:15:21.527",
-      "status": "READY",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "read avro, read , json - show",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 15:15:21.527",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1572275721527_-911362548",
-      "id": "20191028-094001_257022356",
-      "dateCreated": "2019-10-28 15:15:21.527",
       "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500

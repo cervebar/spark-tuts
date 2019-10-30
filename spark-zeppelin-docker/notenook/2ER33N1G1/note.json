@@ -1174,9 +1174,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "agg1.registerTempTable(\"rok_mesic_vyneseni\")",
+      "text": "// zobrazení v notebooku",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:31:04.311",
+      "dateUpdated": "2019-10-30 11:31:50.803",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1207,172 +1207,15 @@
       "jobName": "paragraph_1572269399374_-1921171900",
       "id": "20191028-132959_737440955",
       "dateCreated": "2019-10-28 13:29:59.375",
-      "dateStarted": "2019-10-28 13:31:04.346",
-      "dateFinished": "2019-10-28 13:31:04.760",
+      "dateStarted": "2019-10-30 11:26:28.708",
+      "dateFinished": "2019-10-30 11:26:29.476",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\nselect * from rok_mesic_vyneseni",
+      "text": "%md\n### JOIN\n* left\n* right",
       "user": "anonymous",
-      "dateUpdated": "2019-10-29 20:54:10.926",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "multiBarChart",
-              "height": 300.0,
-              "optionOpen": true,
-              "setting": {
-                "table": {
-                  "tableGridState": {
-                    "columns": [
-                      {
-                        "name": "year",
-                        "visible": true,
-                        "width": "*",
-                        "sort": {},
-                        "filters": [
-                          {}
-                        ],
-                        "pinned": ""
-                      },
-                      {
-                        "name": "month",
-                        "visible": true,
-                        "width": "*",
-                        "sort": {},
-                        "filters": [
-                          {}
-                        ],
-                        "pinned": ""
-                      },
-                      {
-                        "name": "celkem",
-                        "visible": true,
-                        "width": "*",
-                        "sort": {},
-                        "filters": [
-                          {}
-                        ],
-                        "pinned": ""
-                      }
-                    ],
-                    "scrollFocus": {},
-                    "selection": [],
-                    "grouping": {
-                      "grouping": [],
-                      "aggregations": [],
-                      "rowExpandedStates": {}
-                    },
-                    "treeView": {},
-                    "pagination": {
-                      "paginationCurrentPage": 1.0,
-                      "paginationPageSize": 250.0
-                    }
-                  },
-                  "tableColumnTypeState": {
-                    "names": {
-                      "year": "string",
-                      "month": "string",
-                      "celkem": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": true
-                  },
-                  "updated": false,
-                  "initialized": false
-                },
-                "multiBarChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                },
-                "stackedAreaChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                },
-                "lineChart": {
-                  "rotate": {
-                    "degree": "-45"
-                  },
-                  "xLabelStatus": "default"
-                }
-              },
-              "commonSetting": {},
-              "keys": [
-                {
-                  "name": "month",
-                  "index": 1.0,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "year",
-                  "index": 0.0,
-                  "aggr": "sum"
-                }
-              ],
-              "groups": [],
-              "values": [
-                {
-                  "name": "month",
-                  "index": 1.0,
-                  "aggr": "sum"
-                }
-              ]
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "language": "sql",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/sql"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "year\tmonth\tcelkem\n2018\t12\t574\n2019\t01\t1686\n2019\t02\t2234\n2019\t03\t2599\n2019\t04\t2600\n2019\t05\t3033\n2019\t06\t2734\n2019\t07\t3193\n2019\t08\t2781\n2019\t09\t1553\n2019\t10\t1002\n"
-          },
-          {
-            "type": "TEXT",
-            "data": ""
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572269390461_1502823874",
-      "id": "20191028-132950_743763809",
-      "dateCreated": "2019-10-28 13:29:50.461",
-      "dateStarted": "2019-10-28 13:31:24.260",
-      "dateFinished": "2019-10-28 13:31:25.527",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n### JOIN\n\n* broadcast\n* left\n* right",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:34:18.840",
+      "dateUpdated": "2019-10-30 11:33:52.567",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1398,9 +1241,25 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// TODO male ukazky typu joinu\n// left join\n\n// right join\n\n// outerjoin\n\n\n// broadcast join\n\n// inner",
+      "text": "%md\n",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:48:25.497",
+      "dateUpdated": "2019-10-30 11:36:22.508",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1572435382506_732035800",
+      "id": "20191030-113622_161644473",
+      "dateCreated": "2019-10-30 11:36:22.506",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// left join\n\n// right join\n\n// outerjoin\n\n// inner\n\n// broadcast join - bude až příště",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 11:34:11.848",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1426,50 +1285,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// nas dataset a chytry odpad Prahy iOT\n// historie zaplnenosti nadob\nval hist2019q4 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"historie-zaplnenosti-nadob-2019-q4.csv\")\n\nhist2019q4.printSchema()\nhist2019q4.show(10)",
+      "text": "left.join(right, usingColumns \u003d Seq(\"id\"), joinType \u003d \"inner\").orderBy(\"id\").show()",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 13:50:22.595",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "root\n |-- id: integer (nullable \u003d true)\n |-- container_id: integer (nullable \u003d true)\n |-- code: string (nullable \u003d true)\n |-- percent_calculated: integer (nullable \u003d true)\n |-- upturned: integer (nullable \u003d true)\n |-- temperature: integer (nullable \u003d true)\n |-- battery_status: double (nullable \u003d true)\n |-- measured_at_utc: timestamp (nullable \u003d true)\n |-- prediction_utc: string (nullable \u003d true)\n |-- firealarm: integer (nullable \u003d true)\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|                null|        0|\n|15681051|       30007|0009/ 159C00371|                87|       0|         13|           3.6|2019-10-21 07:18:01|                null|        0|\n|15681045|       30291|0001/ 012C00656|                 0|       0|         11|           3.6|2019-10-21 07:17:12|2019-10-29T11:17:...|        0|\n|15681024|       29820|0006/ 263C00233|               100|       0|         11|           3.6|2019-10-21 07:15:33|                null|        0|\n|15680993|       30038|0003/ 012C00497|                18|       0|         14|           3.6|2019-10-21 07:14:21|2019-11-07T16:42:...|        0|\n|15680974|       29898|0001/ 038C00043|                58|       0|         12|           3.7|2019-10-21 07:13:04|2019-10-25T20:38:...|        0|\n|15680966|       30021|0009/ 161C00395|                57|       0|         15|           3.6|2019-10-21 07:12:38|2019-10-30T20:19:...|        0|\n|15680956|       30290|0001/ 012C00655|                 0|       0|         13|           3.6|2019-10-21 07:12:25|2019-11-08T16:12:...|        0|\n|15680955|       30090|0003/ 041C00601|                 9|       0|         11|           3.6|2019-10-21 07:12:17|2019-11-20T21:02:...|        0|\n|15680934|       30008|0009/ 159C00372|                54|       0|         14|           3.6|2019-10-21 07:11:20|2019-10-29T02:38:...|        0|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+\nonly showing top 10 rows\n\nhist2019q4: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1572269804560_497841476",
-      "id": "20191028-133644_1955477241",
-      "dateCreated": "2019-10-28 13:36:44.560",
-      "dateStarted": "2019-10-28 13:50:22.596",
-      "dateFinished": "2019-10-28 13:50:23.701",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "// nas dataset a chytry odpad Prahy iOT\n\nval hist2019q4_count \u003d hist2019q4.count()\nval szn2019q4_count \u003d szn2019q4.count()\n\n// inner join\nval shjoin \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\")\nshjoin.show(1)\n\n// mame dvakrat container_id :/\nval shjoin2 \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\").drop(szn2019q4(\"container_id\"))\n\nshjoin2.show(1)\n\n// porad ale trosku nesmysl, chci spojit data ze stejneho dne\nval hist2019q4_2 \u003d hist2019q4.withColumn(\"event_date\", substring($\"measured_at_utc\",0,10))\nval szn2019q4_2 \u003d szn2019q4.withColumn(\"event_date\", substring($\"pick_at_utc\",0,10))\n\nval shjoin3 \u003d hist2019q4_2.join(szn2019q4_2,szn2019q4_2(\"container_id\") \u003d\u003d\u003d hist2019q4_2(\"container_id\") \u0026\u0026 szn2019q4_2(\"event_date\") \u003d\u003d\u003d hist2019q4_2(\"event_date\") , \"outer\").drop(szn2019q4_2(\"container_id\")).drop(szn2019q4_2(\"event_date\"))\n\nshjoin3.show(1)",
-      "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:15:42.123",
+      "dateUpdated": "2019-10-30 11:42:32.837",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1492,16 +1310,157 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|       30039|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|event_date|  id|pick_minfilllevel|decrease|code|pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|15512725|       29787|0006/ 264C00202|                48|       0|         17|           3.6|2019-10-12 18:03:32|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\nonly showing top 1 row\n\nhist2019q4_count: Long \u003d 44731\nszn2019q4_count: Long \u003d 1002\nshjoin: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\nshjoin2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 16 more fields]\nhist2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 9 more fields]\nszn2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nshjoin3: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\n"
+            "data": "+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  3|   A3|   A3|\n|  4|   A4|   A4|\n|  4|   A4| A4_1|\n+---+-----+-----+\n\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://0e720bbb5243:4040/jobs/job?id\u003d59",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d60"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1572435557358_-513086547",
+      "id": "20191030-113917_364575987",
+      "dateCreated": "2019-10-30 11:39:17.358",
+      "dateStarted": "2019-10-30 11:42:32.889",
+      "dateFinished": "2019-10-30 11:42:33.343",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import spark.implicits._\n\n  val left \u003d Seq((1, \"A1\"), (2, \"A2\"), (3, \"A3\"), (4, \"A4\")).toDF(\"id\", \"value\")\n  val right \u003d Seq((3, \"A3\"), (4, \"A4\"), (4, \"A4_1\"), (5, \"A5\"), (6, \"A6\")).toDF(\"id\", \"value\")\n\n  println(\"LEFT\")\n  left.orderBy(\"id\").show()\n\n  println(\"RIGHT\")\n  right.orderBy(\"id\").show()\n\n  val joinTypes \u003d Seq(\"inner\", \"outer\", \"full\", \"full_outer\", \"left\", \"left_outer\", \"right\", \"right_outer\", \"left_semi\", \"left_anti\")\n\n  joinTypes foreach { joinType \u003d\u003e\n    println(s\"${joinType.toUpperCase()} JOIN\")\n    left.join(right \u003d right, usingColumns \u003d Seq(\"id\"), joinType \u003d joinType).orderBy(\"id\").show()\n  }",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 11:35:47.411",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "LEFT\n+---+-----+\n| id|value|\n+---+-----+\n|  1|   A1|\n|  2|   A2|\n|  3|   A3|\n|  4|   A4|\n+---+-----+\n\nRIGHT\n+---+-----+\n| id|value|\n+---+-----+\n|  3|   A3|\n|  4| A4_1|\n|  4|   A4|\n|  5|   A5|\n|  6|   A6|\n+---+-----+\n\nINNER JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  3|   A3|   A3|\n|  4|   A4|   A4|\n|  4|   A4| A4_1|\n+---+-----+-----+\n\nOUTER JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  1|   A1| null|\n|  2|   A2| null|\n|  3|   A3|   A3|\n|  4|   A4|   A4|\n|  4|   A4| A4_1|\n|  5| null|   A5|\n|  6| null|   A6|\n+---+-----+-----+\n\nFULL JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  1|   A1| null|\n|  2|   A2| null|\n|  3|   A3|   A3|\n|  4|   A4|   A4|\n|  4|   A4| A4_1|\n|  5| null|   A5|\n|  6| null|   A6|\n+---+-----+-----+\n\nFULL_OUTER JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  1|   A1| null|\n|  2|   A2| null|\n|  3|   A3|   A3|\n|  4|   A4| A4_1|\n|  4|   A4|   A4|\n|  5| null|   A5|\n|  6| null|   A6|\n+---+-----+-----+\n\nLEFT JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  1|   A1| null|\n|  2|   A2| null|\n|  3|   A3|   A3|\n|  4|   A4| A4_1|\n|  4|   A4|   A4|\n+---+-----+-----+\n\nLEFT_OUTER JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  1|   A1| null|\n|  2|   A2| null|\n|  3|   A3|   A3|\n|  4|   A4| A4_1|\n|  4|   A4|   A4|\n+---+-----+-----+\n\nRIGHT JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  3|   A3|   A3|\n|  4|   A4| A4_1|\n|  4|   A4|   A4|\n|  5| null|   A5|\n|  6| null|   A6|\n+---+-----+-----+\n\nRIGHT_OUTER JOIN\n+---+-----+-----+\n| id|value|value|\n+---+-----+-----+\n|  3|   A3|   A3|\n|  4|   A4| A4_1|\n|  4|   A4|   A4|\n|  5| null|   A5|\n|  6| null|   A6|\n+---+-----+-----+\n\nLEFT_SEMI JOIN\n+---+-----+\n| id|value|\n+---+-----+\n|  3|   A3|\n|  4|   A4|\n+---+-----+\n\nLEFT_ANTI JOIN\n+---+-----+\n| id|value|\n+---+-----+\n|  1|   A1|\n|  2|   A2|\n+---+-----+\n\nimport spark.implicits._\nleft: org.apache.spark.sql.DataFrame \u003d [id: int, value: string]\nright: org.apache.spark.sql.DataFrame \u003d [id: int, value: string]\njoinTypes: Seq[String] \u003d List(inner, outer, full, full_outer, left, left_outer, right, right_outer, left_semi, left_anti)\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://0e720bbb5243:4040/jobs/job?id\u003d36",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d37",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d38",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d39",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d40",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d41",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d42",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d43",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d44",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d45",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d46",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d47",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d48",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d49",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d50",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d51",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d52",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d53",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d54"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1572435136441_1508092139",
+      "id": "20191030-113216_258491937",
+      "dateCreated": "2019-10-30 11:32:16.441",
+      "dateStarted": "2019-10-30 11:35:47.459",
+      "dateFinished": "2019-10-30 11:35:58.353",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// nas dataset a chytry odpad Prahy iOT\n// načtení souboru\nval hist2019q4 \u003d spark.read.format(\"csv\")\n  .option(\"sep\", \";\")\n  .option(\"inferSchema\", \"true\")\n  .option(\"header\", \"true\")\n  .load(\"historie-zaplnenosti-nadob-2019-q4.csv\")\n\nval hist2019q4_count \u003d hist2019q4.count()\nval szn2019q4_count \u003d szn2019q4.count()\n\n// inner join\nval shjoin \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\")\nshjoin.show(1)\n\n// mame dvakrat container_id :/\nval shjoin2 \u003d hist2019q4.join(szn2019q4,szn2019q4(\"container_id\") \u003d\u003d\u003d hist2019q4(\"container_id\"), \"inner\").drop(szn2019q4(\"container_id\"))\n\nshjoin2.show(1)\n\n// porad ale trosku nesmysl, chci spojit data ze stejneho dne\nval hist2019q4_2 \u003d hist2019q4.withColumn(\"event_date\", substring($\"measured_at_utc\",0,10))\nval szn2019q4_2 \u003d szn2019q4.withColumn(\"event_date\", substring($\"pick_at_utc\",0,10))\n\nval shjoin3 \u003d hist2019q4_2.join(szn2019q4_2,szn2019q4_2(\"container_id\") \u003d\u003d\u003d hist2019q4_2(\"container_id\") \u0026\u0026 szn2019q4_2(\"event_date\") \u003d\u003d\u003d hist2019q4_2(\"event_date\") , \"outer\").drop(szn2019q4_2(\"container_id\")).drop(szn2019q4_2(\"event_date\"))\n\nshjoin3.show(1)",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 11:47:18.328",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|container_id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|       30039|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+------------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|prediction_utc|firealarm|      id|pick_minfilllevel|decrease|           code|        pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\n|15681053|       30039|0003/ 013C00501|                90|       0|         12|           3.6|2019-10-21 07:18:56|          null|        0|15623272|               30|      20|0003/ 013C00501|2019-10-18 10:18:57|           100|          5|       false|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------+---------+--------+-----------------+--------+---------------+-------------------+--------------+-----------+------------+\nonly showing top 1 row\n\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|      id|container_id|           code|percent_calculated|upturned|temperature|battery_status|    measured_at_utc|      prediction_utc|firealarm|event_date|  id|pick_minfilllevel|decrease|code|pick_at_utc|percent_before|percent_now|event_driven|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\n|15512725|       29787|0006/ 264C00202|                48|       0|         17|           3.6|2019-10-12 18:03:32|2019-11-07T21:06:...|        0|2019-10-12|null|             null|    null|null|       null|          null|       null|        null|\n+--------+------------+---------------+------------------+--------+-----------+--------------+-------------------+--------------------+---------+----------+----+-----------------+--------+----+-----------+--------------+-----------+------------+\nonly showing top 1 row\n\nhist2019q4: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nhist2019q4_count: Long \u003d 44731\nszn2019q4_count: Long \u003d 1002\nshjoin: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\nshjoin2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 16 more fields]\nhist2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 9 more fields]\nszn2019q4_2: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 8 more fields]\nshjoin3: org.apache.spark.sql.DataFrame \u003d [id: int, container_id: int ... 17 more fields]\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://0e720bbb5243:4040/jobs/job?id\u003d61",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d62",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d63",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d64",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d65",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d66",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d67",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d68",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d69"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1572269927918_2120521067",
       "id": "20191028-133847_1281814611",
       "dateCreated": "2019-10-28 13:38:47.918",
-      "dateStarted": "2019-10-28 14:15:42.167",
-      "dateFinished": "2019-10-28 14:15:44.383",
+      "dateStarted": "2019-10-30 11:47:18.415",
+      "dateFinished": "2019-10-30 11:47:24.101",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1534,9 +1493,67 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "nadoba30039.show(5)\n\nnadoba30039.select(\"temperature\").distinct().show()\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-10-30 12:10:01.490",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|event_date|container_id|percent_calculated|temperature|battery_status|    measured_at_utc|pick_at_utc|percent_before|percent_now|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\n|2019-10-21|       30039|                90|         12|           3.6|2019-10-21 07:18:56|       null|          null|       null|\n|2019-10-21|       30039|                98|         12|           3.6|2019-10-21 04:18:56|       null|          null|       null|\n|2019-10-20|       30039|                92|         14|           3.6|2019-10-20 17:18:58|       null|          null|       null|\n|2019-10-20|       30039|                91|         14|           3.6|2019-10-20 15:18:59|       null|          null|       null|\n|2019-10-20|       30039|                69|         14|           3.6|2019-10-20 13:18:58|       null|          null|       null|\n+----------+------------+------------------+-----------+--------------+-------------------+-----------+--------------+-----------+\nonly showing top 5 rows\n\n+-----------+\n|temperature|\n+-----------+\n|         12|\n|         13|\n|         16|\n|          6|\n|         15|\n|          9|\n|         17|\n|          8|\n|          7|\n|         10|\n|         11|\n|         14|\n|         18|\n+-----------+\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://0e720bbb5243:4040/jobs/job?id\u003d86",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d87",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d88",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d89",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d90",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d91",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d92",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d93"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1572437194951_-246319825",
+      "id": "20191030-120634_1107392017",
+      "dateCreated": "2019-10-30 12:06:34.951",
+      "dateStarted": "2019-10-30 12:10:01.542",
+      "dateFinished": "2019-10-30 12:10:04.008",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "// zjistit informace o kontejneru 30039\n\n// filter \u0026 select\nval nadoba30039 \u003d shjoin3.filter($\"container_id\" \u003d\u003d\u003d 30039).select(\"event_date\",\"container_id\",\"percent_calculated\",\"temperature\",\"battery_status\",\"measured_at_utc\",\"pick_at_utc\",\"percent_before\",\"percent_now\")\nnadoba30039.show(5)\n\n// moje vlastni udf\nimport org.apache.spark.sql.functions.udf\n\nval measured \u003d udf((eventDate: String, temperature: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"namerena teplota \" + temperature + \"°C\" else \"nemereno\"\n})\nval picked \u003d udf((eventDate: String, percentNow: String) \u003d\u003e {\n    if(eventDate!\u003dnull) \"vysypano pri zaplnenosti \" + percentNow + \"%\" else \"nevysypano\"\n})\nval bothEvents \u003d udf((picked: String, measured: String) \u003d\u003e {\n    if(picked!\u003dnull \u0026\u0026 measured!\u003dnull) true else false\n})\n\nval nadoba30039_2 \u003d nadoba30039.withColumn(\"info_m\", measured($\"measured_at_utc\",$\"temperature\")).withColumn(\"info_p\", picked($\"pick_at_utc\",$\"percent_before\")).withColumn(\"both_events\", bothEvents($\"pick_at_utc\",$\"measured_at_utc\"))\n\nval nadoba30039_3 \u003d nadoba30039_2.filter(\"both_events\").select(\"event_date\",\"info_m\",\"info_p\").sort(\"event_date\")\n\nnadoba30039_3.show(false)",
       "user": "anonymous",
-      "dateUpdated": "2019-10-28 14:44:34.538",
+      "dateUpdated": "2019-10-30 12:06:10.503",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1563,12 +1580,27 @@
           }
         ]
       },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://0e720bbb5243:4040/jobs/job?id\u003d70",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d71",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d72",
+            "http://0e720bbb5243:4040/jobs/job?id\u003d73"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "apps": [],
       "jobName": "paragraph_1572270844545_-1371750365",
       "id": "20191028-135404_319133906",
       "dateCreated": "2019-10-28 13:54:04.546",
-      "dateStarted": "2019-10-28 14:44:34.584",
-      "dateFinished": "2019-10-28 14:44:36.370",
+      "dateStarted": "2019-10-30 12:06:10.558",
+      "dateFinished": "2019-10-30 12:06:13.379",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
