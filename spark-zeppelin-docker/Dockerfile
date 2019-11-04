@@ -43,6 +43,8 @@ EXPOSE $ZEPPELIN_PORT
 EXPOSE 4040
 EXPOSE 4041
 
+EXPOSE 9999
+
 ENV ZEPPELIN_HOME /usr/zeppelin/zeppelin-${ZEPPELIN_VERSION}-bin-all
 ENV ZEPPELIN_CONF_DIR $ZEPPELIN_HOME/conf
 ENV ZEPPELIN_NOTEBOOK_DIR $ZEPPELIN_HOME/notebook
@@ -55,6 +57,10 @@ RUN mkdir -p $ZEPPELIN_HOME \
 # my WorkDir
 RUN mkdir /work
 WORKDIR /work
+
+## netcat
+RUN apt-get install -y netcat
+RUN apt-get install -y nano
 
 
 ENTRYPOINT  /usr/local/spark/sbin/start-history-server.sh;  $ZEPPELIN_HOME/bin/zeppelin-daemon.sh start; /bin/bash

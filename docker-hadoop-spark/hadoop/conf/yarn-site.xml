@@ -29,4 +29,12 @@
  <name>yarn.nodemanager.hostname</name>
  <value>yarn</value>
 </property>
+<property>
+ <name>yarn.nodemanager.vmem-pmem-ratio</name>
+ <value>4</value>
+</property>
+<property>
+ <name>yarn.nodemanager.vmem-check-enabled</name>
+ <value>false</value>
+</property>
 </configuration>
