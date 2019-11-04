@@ -1,13 +1,17 @@
-docker-compose -f hadoop/docker-compose.yml up -d# based on tutorial
-* https://github.com/informatics-lab/docker-hadoop-spark
+
+
+
+
+# LCIENCE, credits
+based on tutorial: https://github.com/informatics-lab/docker-hadoop-spark
 
 
 # Docker Spark Hadoop Zeppelin
-* OS - Ubuntu 14.04
+* OS - Ubuntu 18.10
 * Java 8 (openjdk)
-* Hadoop 2.6.0
-* Spark 2.3.4
-* Zepplelin 0.8.2
+* Hadoop 2.7.0
+* Spark 2.4.4
+* Zeppelin 0.8.2
 
 TODO - obrazek co je cilem
 
@@ -45,12 +49,13 @@ docker run --rm -ti --link=hadoop_yarn_1:yarn --link=hadoop_namenode_1:namenode 
 ### ověření:
 
 ```
+./bootstrap.sh
 hdfs dfs -ls /spark-lib
 ```
 
 ```
 cd /usr/local/spark
-spark-submit --deploy-mode cluster --master yarn --class org.apache.spark.examples.SparkPi $SPARK_HOME/examples/jars/spark-examples_2.11-2.3.4.jar 10
+spark-submit --deploy-mode cluster --master yarn --class org.apache.spark.examples.SparkPi examples/jars/spark-examples_2.11-2.4.4.jar 10
 ```
 
 ```
